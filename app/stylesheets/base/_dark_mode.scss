@@ -1,0 +1,223 @@
+/*
+ * Copyright (C) 2026 - present Instructure, Inc.
+ *
+ * This file is part of Canvas.
+ *
+ * Canvas is free software: you can redistribute it and/or modify it under
+ * the terms of the GNU Affero General Public License as published by the Free
+ * Software Foundation, version 3 of the License.
+ *
+ * Canvas is distributed in the hope that it will be useful, but WITHOUT ANY
+ * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
+ * A PARTICULAR PURPOSE. See the GNU Affero General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Affero General Public License along
+ * with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+// Dark Mode Theme
+// ================
+// This file defines CSS custom properties for dark mode.
+// It is applied when the body has the 'dark-mode' class.
+// These variables override the default Canvas brand variables
+// while preserving the ability for institution branding to work.
+
+body.dark-mode {
+  // Page backgrounds
+  --ic-brand-primary: #4f9cff;
+  --ic-brand-font-color-dark: #e6e6e6;
+  --ic-link-color: #6ea8ff;
+
+  // Button colors
+  --ic-brand-button--primary-bgd: #4f9cff;
+  --ic-brand-button--primary-text: #121212;
+  --ic-brand-button--secondary-bgd: #3a3a3a;
+  --ic-brand-button--secondary-text: #e6e6e6;
+
+  // Navigation colors
+  --ic-brand-global-nav-bgd: #1a1a1a;
+  --ic-brand-global-nav-ic-icon-svg-fill: #ffffff;
+  --ic-brand-global-nav-ic-icon-svg-fill--active: #4f9cff;
+  --ic-brand-global-nav-menu-item__text-color: #ffffff;
+  --ic-brand-global-nav-menu-item__text-color--active: #6ea8ff;
+  --ic-brand-global-nav-avatar-border: #4a4a4a;
+  --ic-brand-global-nav-menu-item__badge-bgd: #4f9cff;
+  --ic-brand-global-nav-menu-item__badge-text: #121212;
+
+  // Page backgrounds and general colors
+  background-color: #121212;
+  color: #e6e6e6;
+
+  // Override standard Canvas layout colors
+  .ic-app-header {
+    background-color: #1a1a1a;
+  }
+
+  #wrapper {
+    background-color: #121212;
+  }
+
+  .ic-Layout-contentMain {
+    background-color: #121212;
+  }
+
+  // Card and content area styling
+  .ic-Dashboard-header,
+  .ic-app-content-wrapper,
+  .content-wrapper {
+    background-color: #121212;
+  }
+
+  // Table and list styling
+  table,
+  .table,
+  .item-group,
+  .ig-list {
+    background-color: #1e1e1e;
+    color: #e6e6e6;
+  }
+
+  table th,
+  table td {
+    border-color: #2c2c2c;
+  }
+
+  // Form elements
+  input,
+  textarea,
+  select,
+  .ic-Input {
+    background-color: #2a2a2a;
+    color: #e6e6e6;
+    border-color: #3a3a3a;
+
+    &::placeholder {
+      color: #888888;
+    }
+  }
+
+  // Links
+  a:not(.btn):not(.Button) {
+    color: #6ea8ff;
+
+    &:hover,
+    &:focus {
+      color: #8fb8ff;
+    }
+  }
+
+  // Alerts and notifications - keep some visibility
+  .alert,
+  .ic-flash-info,
+  .ic-flash-success,
+  .ic-flash-warning,
+  .ic-flash-error {
+    // Slightly adjusted for dark mode visibility
+    border-color: #3a3a3a;
+  }
+
+  // Breadcrumbs
+  .ic-app-crumbs {
+    background-color: transparent;
+
+    a {
+      color: #6ea8ff;
+    }
+  }
+
+  // Side navigation
+  .ic-app-course-menu {
+    background-color: #1e1e1e;
+    border-color: #2c2c2c;
+  }
+
+  // Right side content
+  #right-side {
+    background-color: transparent;
+
+    .rs-margin-all,
+    .rs-margin-lr {
+      background-color: #1e1e1e;
+      border-color: #2c2c2c;
+    }
+  }
+
+  // Modal dialogs
+  .ReactModal__Content,
+  .ui-dialog {
+    background-color: #1e1e1e;
+    color: #e6e6e6;
+  }
+
+  // Canvas cards (dashboard)
+  .ic-DashboardCard,
+  .ic-DashboardCard__header {
+    background-color: #1e1e1e;
+  }
+
+  // Module items
+  .ig-row,
+  .context_module_item {
+    background-color: #1e1e1e;
+    border-color: #2c2c2c;
+
+    &:hover {
+      background-color: #252525;
+    }
+  }
+
+  // Assignment/module headers
+  .ig-header,
+  .context_module {
+    background-color: #252525;
+    border-color: #2c2c2c;
+  }
+
+  // Discussion entries
+  .discussion-entries,
+  .discussion-entry {
+    background-color: #1e1e1e;
+    border-color: #2c2c2c;
+  }
+
+  // Submission details
+  .submission_details {
+    background-color: #1e1e1e;
+  }
+
+  // Code blocks
+  pre,
+  code {
+    background-color: #2a2a2a;
+    color: #e6e6e6;
+    border-color: #3a3a3a;
+  }
+
+  // Scrollbars for webkit browsers
+  ::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #1e1e1e;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #3a3a3a;
+    border-radius: 6px;
+    border: 3px solid #1e1e1e;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #4a4a4a;
+  }
+}
+
+// Ensure PDF preview pages stay light
+body.dark-mode .ef-file-preview-frame,
+body.dark-mode .file-preview-frame,
+body.dark-mode iframe.pdf-preview {
+  background-color: #ffffff;
+}

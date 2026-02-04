@@ -294,6 +294,7 @@ class ApplicationController < ActionController::Base
           help_link_icon:,
           ADA_CHATBOT_ENABLED: @domain_root_account&.feature_enabled?(:ada_chatbot),
           use_high_contrast: @current_user&.prefers_high_contrast?,
+          prefers_dark_mode: @current_user&.prefers_dark_mode?,
           auto_show_cc: @current_user&.auto_show_cc?,
           disable_celebrations: @current_user&.prefers_no_celebrations?,
           disable_keyboard_shortcuts: @current_user&.prefers_no_keyboard_shortcuts?,

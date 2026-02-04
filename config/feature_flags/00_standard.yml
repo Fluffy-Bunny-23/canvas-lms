@@ -41,6 +41,17 @@ common_cartridge_page_conversion:
   description: If enabled, Common Cartridge importers will convert HTML files into
     Pages
   applies_to: Course
+dark_mode:
+  type: setting
+  state: allowed
+  display_name:
+    features.dark_mode: Dark Mode
+  description:
+    dark_mode_description: |-
+      Dark Mode reduces screen brightness and uses a dark color theme across Canvas.
+      This feature is designed to reduce eye strain and improve visibility in low-light
+      environments.
+  applies_to: User
 disable_alert_timeouts:
   type: setting
   state: allowed
