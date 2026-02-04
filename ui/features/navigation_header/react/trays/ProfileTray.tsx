@@ -28,6 +28,7 @@ import {Link} from '@instructure/ui-link'
 import {View} from '@instructure/ui-view'
 import LogoutButton from '../LogoutButton'
 import HighContrastModeToggle from './HighContrastModeToggle'
+import DarkModeToggle from './DarkModeToggle'
 import DyslexicFontToggle from './UseDyslexicFontToggle'
 import WidgetDashboardToggle from './WidgetDashboardToggle'
 import {AccessibleContent} from '@instructure/ui-a11y-content'
@@ -112,6 +113,7 @@ export default function ProfileTray() {
 
   // Check if we have any accessibility settings to show
   const hasAccessibilitySettings = true // High contrast is always available
+  const hasDarkMode = 'prefers_dark_mode' in window.ENV
   const hasDyslexicFont = 'use_dyslexic_font' in window.ENV
 
   // Check if we have any early access settings to show
@@ -167,6 +169,7 @@ export default function ProfileTray() {
             {I18n.t('Accessibility Settings')}
           </Heading>
           <HighContrastModeToggle />
+          {hasDarkMode && <DarkModeToggle />}
           {hasDyslexicFont && <DyslexicFontToggle />}
         </>
       )}
