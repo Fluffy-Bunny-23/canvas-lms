@@ -23,201 +23,666 @@
 // These variables override the default Canvas brand variables
 // while preserving the ability for institution branding to work.
 
+// =========================================
+// Dark Mode Color Palette
+// =========================================
+$dm-bg-darkest: #0d0d0d;      // Deepest background
+$dm-bg-darker: #121212;        // Main page background
+$dm-bg-dark: #1a1a1a;          // Sidebar, nav background
+$dm-bg-medium: #1e1e1e;        // Cards, panels
+$dm-bg-light: #252525;         // Hover states, elevated elements
+$dm-bg-lighter: #2a2a2a;       // Input fields, code blocks
+$dm-bg-lightest: #333333;      // Active states
+
+$dm-border-dark: #2c2c2c;      // Subtle borders
+$dm-border-medium: #3a3a3a;    // Standard borders
+$dm-border-light: #4a4a4a;     // Emphasized borders
+
+$dm-text-primary: #e6e6e6;     // Primary text
+$dm-text-secondary: #b3b3b3;   // Secondary text
+$dm-text-muted: #888888;       // Muted/placeholder text
+
+$dm-accent-primary: #4f9cff;   // Primary accent (blue)
+$dm-accent-link: #6ea8ff;      // Link color
+$dm-accent-hover: #8fb8ff;     // Link hover
+
 body.dark-mode {
-  // Page backgrounds
-  --ic-brand-primary: #4f9cff;
-  --ic-brand-font-color-dark: #e6e6e6;
-  --ic-link-color: #6ea8ff;
+  // =========================================
+  // CSS Custom Properties (Brand Variables)
+  // =========================================
+
+  // Primary brand colors
+  --ic-brand-primary: #{$dm-accent-primary};
+  --ic-brand-font-color-dark: #{$dm-text-primary};
+  --ic-link-color: #{$dm-accent-link};
 
   // Button colors
-  --ic-brand-button--primary-bgd: #4f9cff;
-  --ic-brand-button--primary-text: #121212;
-  --ic-brand-button--secondary-bgd: #3a3a3a;
-  --ic-brand-button--secondary-text: #e6e6e6;
+  --ic-brand-button--primary-bgd: #{$dm-accent-primary};
+  --ic-brand-button--primary-text: #{$dm-bg-darker};
+  --ic-brand-button--secondary-bgd: #{$dm-bg-lightest};
+  --ic-brand-button--secondary-text: #{$dm-text-primary};
 
-  // Navigation colors
-  --ic-brand-global-nav-bgd: #1a1a1a;
-  --ic-brand-global-nav-ic-icon-svg-fill: #ffffff;
-  --ic-brand-global-nav-ic-icon-svg-fill--active: #4f9cff;
-  --ic-brand-global-nav-menu-item__text-color: #ffffff;
-  --ic-brand-global-nav-menu-item__text-color--active: #6ea8ff;
-  --ic-brand-global-nav-avatar-border: #4a4a4a;
-  --ic-brand-global-nav-menu-item__badge-bgd: #4f9cff;
-  --ic-brand-global-nav-menu-item__badge-text: #121212;
+  // Global Navigation colors - CRITICAL for sidebar
+  --ic-brand-global-nav-bgd: #{$dm-bg-dark};
+  --ic-brand-global-nav-ic-icon-svg-fill: #{$dm-text-primary};
+  --ic-brand-global-nav-ic-icon-svg-fill--active: #{$dm-accent-primary};
+  --ic-brand-global-nav-menu-item__text-color: #{$dm-text-primary};
+  --ic-brand-global-nav-menu-item__text-color--active: #{$dm-accent-link};
+  --ic-brand-global-nav-avatar-border: #{$dm-border-light};
+  --ic-brand-global-nav-menu-item__badge-bgd: #{$dm-accent-primary};
+  --ic-brand-global-nav-menu-item__badge-text: #{$dm-bg-darker};
+  --ic-brand-global-nav-logo-bgd: #{$dm-bg-dark};
 
-  // Page backgrounds and general colors
-  background-color: #121212;
-  color: #e6e6e6;
+  // =========================================
+  // Base Page Styles
+  // =========================================
+  background-color: $dm-bg-darker !important;
+  color: $dm-text-primary;
 
-  // Override standard Canvas layout colors
+  // =========================================
+  // SIDEBAR & NAVIGATION - FLASHBANG FIXES
+  // =========================================
+
+  // Main sidebar header
   .ic-app-header {
-    background-color: #1a1a1a;
+    background-color: $dm-bg-dark !important;
   }
 
-  #wrapper {
-    background-color: #121212;
+  // Fix sidebar nav hover/active states (prevent white flashbang)
+  .ic-app-header__menu-list-item {
+    &.ic-app-header__menu-list-item--active {
+      .ic-app-header__menu-list-link {
+        background: $dm-bg-light !important;
+      }
+    }
   }
 
-  .ic-Layout-contentMain {
-    background-color: #121212;
+  // InstUI SideNav overrides - CRITICAL
+  #instui-sidenav {
+    background-color: $dm-bg-dark !important;
   }
 
-  // Card and content area styling
+  // Fix profile tray and other nav items hover/active states
+  #profile-tray,
+  #accounts-tray,
+  #dashboard-tray,
+  #courses-tray,
+  #calendar-tray,
+  #conversations-tray,
+  #history-tray,
+  #help-tray,
+  [id$="-external-tool-tray"] {
+    &:hover,
+    &:focus {
+      background-color: rgba(255, 255, 255, 0.1) !important;
+    }
+
+    &[data-selected="true"] {
+      background-color: $dm-bg-light !important;
+
+      &:hover,
+      &:focus {
+        background-color: $dm-bg-lightest !important;
+      }
+    }
+  }
+
+  // Navigation tray panels (when expanded)
+  .navigation-tray-container,
+  [class*="tray"] {
+    background-color: $dm-bg-medium !important;
+  }
+
+  // =========================================
+  // PROFILE TRAY / DIALOG - FLASHBANG FIX
+  // =========================================
+
+  // Profile tray (slide-out panel)
+  [role="dialog"] {
+    background-color: $dm-bg-medium !important;
+    color: $dm-text-primary !important;
+
+    // Close button and other controls
+    button {
+      color: $dm-text-primary;
+    }
+  }
+
+  // InstUI Tray component
+  [class*="tray__content"],
+  [class*="Tray-content"],
+  [class*="tray-content"] {
+    background-color: $dm-bg-medium !important;
+  }
+
+  // =========================================
+  // MAIN CONTENT AREA
+  // =========================================
+
+  #wrapper,
+  .ic-Layout-wrapper {
+    background-color: $dm-bg-darker !important;
+  }
+
+  .ic-Layout-contentMain,
+  #content,
+  .ic-app-main-content {
+    background-color: $dm-bg-darker !important;
+  }
+
   .ic-Dashboard-header,
   .ic-app-content-wrapper,
   .content-wrapper {
-    background-color: #121212;
+    background-color: $dm-bg-darker !important;
   }
 
-  // Table and list styling
+  // =========================================
+  // CARDS, PANELS, CONTAINERS
+  // =========================================
+
+  // Dashboard cards
+  .ic-DashboardCard,
+  .ic-DashboardCard__header {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+  }
+
+  .ic-DashboardCard__header_content,
+  .ic-DashboardCard__action-container {
+    background-color: transparent !important;
+  }
+
+  // Generic cards and panels
+  .card,
+  .panel,
+  .well,
+  .box {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+  }
+
+  // Info boxes and alerts - style appropriately for dark mode
+  .ic-notification,
+  .notification,
+  [class*="Alert"],
+  [class*="alert"] {
+    background-color: $dm-bg-light !important;
+    border-color: $dm-border-medium !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // DASHBOARD SPECIFIC FIXES - FLASHBANG PREVENTION
+  // =========================================
+
+  // Info/notification boxes on dashboard (Welcome to Canvas, etc.)
+  .ic-flash-info,
+  .ic-flash-success,
+  .ic-flash-warning,
+  .ic-flash-error,
+  .ic-notification,
+  .ic-notification__content,
+  [class*="flashalert"],
+  [class*="FlashAlert"] {
+    background-color: $dm-bg-light !important;
+    border-color: $dm-border-medium !important;
+    color: $dm-text-primary !important;
+  }
+
+  // InstUI Alert and Billboard components
+  [class*="Billboard"],
+  [class*="billboard"] {
+    background-color: $dm-bg-medium !important;
+    color: $dm-text-primary !important;
+  }
+
+  // Dashboard welcome/info cards
+  .ic-DashboardCard__box,
+  .dashboard-activity,
+  .todo-list-header,
+  .coming_up,
+  .Sidebar__TodoListContainer,
+  [class*="DashboardCard"],
+  [class*="dashboardCard"] {
+    background-color: $dm-bg-medium !important;
+    color: $dm-text-primary !important;
+  }
+
+  // InstUI View components that might have white backgrounds
+  [class*="-view"],
+  [class*="View__"],
+  [class*="view__"] {
+    &:not([class*="preview"]) {
+      background-color: inherit;
+    }
+  }
+
+  // Specific InstUI components with backgrounds
+  [class*="FormFieldGroup"],
+  [class*="FormField"],
+  [class*="RadioInput"],
+  [class*="Checkbox__facade"] {
+    background-color: transparent !important;
+  }
+
+  // Dashboard card placeholder images/empty state
+  .ic-DashboardCard__placeholder,
+  [class*="placeholder"],
+  [class*="EmptyState"],
+  [class*="emptyState"] {
+    background-color: $dm-bg-medium !important;
+  }
+
+  // SVG and icon coloring
+  svg:not([class*="brand"]) {
+    fill: currentColor;
+  }
+
+  // Fix white text on light elements
+  .ic-DashboardCard__header-title,
+  .ic-DashboardCard__header-subtitle {
+    color: $dm-text-primary !important;
+  }
+
+  // Kill any remaining white/light gray backgrounds on the main dashboard
+  #dashboard,
+  .dashboard,
+  #dashboard_header_container,
+  .ic-Dashboard-header__layout {
+    background-color: $dm-bg-darker !important;
+  }
+
+  // Dashboard options/card section
+  #DashboardOptionsMenu,
+  [class*="DashboardOptionsMenu"] {
+    background-color: $dm-bg-medium !important;
+  }
+
+  // Announcement/info boxes with white backgrounds
+  .ic-item-row,
+  .announcement,
+  .announcements {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+  }
+
+  // Force dark on any div with white inline styles in dashboard
+  #content,
+  #main {
+    background-color: $dm-bg-darker !important;
+
+    > div,
+    > section,
+    > article {
+      background-color: inherit;
+    }
+  }
+
+  // =========================================
+  // TABLES AND LISTS
+  // =========================================
+
   table,
   .table,
   .item-group,
   .ig-list {
-    background-color: #1e1e1e;
-    color: #e6e6e6;
+    background-color: $dm-bg-medium !important;
+    color: $dm-text-primary !important;
   }
 
   table th,
-  table td {
-    border-color: #2c2c2c;
+  table td,
+  .table th,
+  .table td {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
   }
 
-  // Form elements
+  table thead th,
+  .table thead th {
+    background-color: $dm-bg-light !important;
+  }
+
+  table tbody tr:hover,
+  .table tbody tr:hover {
+    background-color: $dm-bg-light !important;
+  }
+
+  // =========================================
+  // FORM ELEMENTS
+  // =========================================
+
   input,
   textarea,
   select,
-  .ic-Input {
-    background-color: #2a2a2a;
-    color: #e6e6e6;
-    border-color: #3a3a3a;
+  .ic-Input,
+  [class*="Input"],
+  [class*="TextInput"],
+  [class*="TextArea"],
+  [class*="Select"] {
+    background-color: $dm-bg-lighter !important;
+    color: $dm-text-primary !important;
+    border-color: $dm-border-medium !important;
 
     &::placeholder {
-      color: #888888;
+      color: $dm-text-muted !important;
+    }
+
+    &:focus {
+      border-color: $dm-accent-primary !important;
+      box-shadow: 0 0 0 2px rgba($dm-accent-primary, 0.3) !important;
     }
   }
 
-  // Links
-  a:not(.btn):not(.Button) {
-    color: #6ea8ff;
+  // Checkboxes and toggles
+  [class*="Checkbox"],
+  [class*="Toggle"] {
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // BUTTONS
+  // =========================================
+
+  .btn,
+  .Button,
+  button:not([class*="close"]) {
+    &:not(.btn-primary):not(.Button--primary):not([class*="primary"]) {
+      background-color: $dm-bg-lightest !important;
+      border-color: $dm-border-medium !important;
+      color: $dm-text-primary !important;
+
+      &:hover {
+        background-color: $dm-border-medium !important;
+      }
+    }
+  }
+
+  // =========================================
+  // LINKS
+  // =========================================
+
+  a:not(.btn):not(.Button):not([class*="Button"]) {
+    color: $dm-accent-link;
 
     &:hover,
     &:focus {
-      color: #8fb8ff;
+      color: $dm-accent-hover;
     }
   }
 
-  // Alerts and notifications - keep some visibility
-  .alert,
-  .ic-flash-info,
-  .ic-flash-success,
-  .ic-flash-warning,
-  .ic-flash-error {
-    // Slightly adjusted for dark mode visibility
-    border-color: #3a3a3a;
+  // =========================================
+  // MODALS AND DIALOGS
+  // =========================================
+
+  .ReactModal__Content,
+  .ui-dialog,
+  .modal-content,
+  [class*="Modal"],
+  [role="dialog"] > div {
+    background-color: $dm-bg-medium !important;
+    color: $dm-text-primary !important;
+    border-color: $dm-border-dark !important;
   }
 
-  // Breadcrumbs
-  .ic-app-crumbs {
-    background-color: transparent;
+  .modal-header,
+  .modal-footer,
+  .ui-dialog-titlebar,
+  .ui-dialog-buttonpane {
+    background-color: $dm-bg-light !important;
+    border-color: $dm-border-dark !important;
+  }
+
+  // Modal overlay
+  .ReactModal__Overlay,
+  .modal-backdrop,
+  .ui-widget-overlay {
+    background-color: rgba(0, 0, 0, 0.7) !important;
+  }
+
+  // =========================================
+  // DROPDOWNS AND MENUS
+  // =========================================
+
+  .dropdown-menu,
+  [class*="Menu"],
+  [class*="Popover"],
+  [role="menu"],
+  [role="listbox"] {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+
+    li,
+    [role="menuitem"],
+    [role="option"] {
+      color: $dm-text-primary !important;
+
+      &:hover,
+      &:focus {
+        background-color: $dm-bg-light !important;
+      }
+    }
+  }
+
+  // =========================================
+  // TOOLTIPS
+  // =========================================
+
+  [class*="Tooltip"],
+  .tooltip,
+  .ui-tooltip {
+    background-color: $dm-bg-lightest !important;
+    color: $dm-text-primary !important;
+    border-color: $dm-border-medium !important;
+  }
+
+  // =========================================
+  // BREADCRUMBS
+  // =========================================
+
+  .ic-app-crumbs,
+  [class*="Breadcrumb"] {
+    background-color: transparent !important;
 
     a {
-      color: #6ea8ff;
+      color: $dm-accent-link !important;
     }
   }
 
-  // Side navigation
-  .ic-app-course-menu {
-    background-color: #1e1e1e;
-    border-color: #2c2c2c;
+  // =========================================
+  // COURSE NAVIGATION (LEFT SIDEBAR IN COURSES)
+  // =========================================
+
+  .ic-app-course-menu,
+  #section-tabs,
+  .course-menu {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+
+    a {
+      color: $dm-text-primary !important;
+
+      &:hover {
+        background-color: $dm-bg-light !important;
+      }
+
+      &.active {
+        background-color: $dm-bg-lightest !important;
+        color: $dm-accent-link !important;
+      }
+    }
   }
 
-  // Right side content
-  #right-side {
-    background-color: transparent;
+  // =========================================
+  // RIGHT SIDEBAR
+  // =========================================
+
+  #right-side,
+  .right-side {
+    background-color: transparent !important;
 
     .rs-margin-all,
-    .rs-margin-lr {
-      background-color: #1e1e1e;
-      border-color: #2c2c2c;
+    .rs-margin-lr,
+    .todo-list,
+    .coming-up {
+      background-color: $dm-bg-medium !important;
+      border-color: $dm-border-dark !important;
+      color: $dm-text-primary !important;
     }
   }
 
-  // Modal dialogs
-  .ReactModal__Content,
-  .ui-dialog {
-    background-color: #1e1e1e;
-    color: #e6e6e6;
-  }
+  // =========================================
+  // MODULE ITEMS
+  // =========================================
 
-  // Canvas cards (dashboard)
-  .ic-DashboardCard,
-  .ic-DashboardCard__header {
-    background-color: #1e1e1e;
-  }
-
-  // Module items
   .ig-row,
   .context_module_item {
-    background-color: #1e1e1e;
-    border-color: #2c2c2c;
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
 
     &:hover {
-      background-color: #252525;
+      background-color: $dm-bg-light !important;
     }
   }
 
-  // Assignment/module headers
   .ig-header,
-  .context_module {
-    background-color: #252525;
-    border-color: #2c2c2c;
+  .context_module,
+  .item-group-condensed .ig-header {
+    background-color: $dm-bg-light !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
   }
 
-  // Discussion entries
+  // =========================================
+  // DISCUSSIONS
+  // =========================================
+
   .discussion-entries,
-  .discussion-entry {
-    background-color: #1e1e1e;
-    border-color: #2c2c2c;
+  .discussion-entry,
+  .discussion_entry {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
   }
 
-  // Submission details
-  .submission_details {
-    background-color: #1e1e1e;
+  // =========================================
+  // ASSIGNMENTS
+  // =========================================
+
+  .assignment,
+  .submission_details,
+  #assignment_show {
+    background-color: $dm-bg-medium !important;
+    color: $dm-text-primary !important;
   }
 
-  // Code blocks
+  // =========================================
+  // CODE BLOCKS
+  // =========================================
+
   pre,
-  code {
-    background-color: #2a2a2a;
-    color: #e6e6e6;
-    border-color: #3a3a3a;
+  code,
+  .code {
+    background-color: $dm-bg-lighter !important;
+    color: $dm-text-primary !important;
+    border-color: $dm-border-medium !important;
   }
 
-  // Scrollbars for webkit browsers
+  // =========================================
+  // INSTUI COMPONENT OVERRIDES
+  // =========================================
+
+  // View component backgrounds
+  [class*="View-"] {
+    &[style*="background"] {
+      background-color: $dm-bg-medium !important;
+    }
+  }
+
+  // Heading colors
+  h1, h2, h3, h4, h5, h6,
+  [class*="Heading"] {
+    color: $dm-text-primary !important;
+  }
+
+  // Text colors
+  [class*="Text"] {
+    color: inherit !important;
+  }
+
+  // =========================================
+  // SCROLLBARS
+  // =========================================
+
   ::-webkit-scrollbar {
     width: 12px;
     height: 12px;
   }
 
   ::-webkit-scrollbar-track {
-    background: #1e1e1e;
+    background: $dm-bg-medium;
   }
 
   ::-webkit-scrollbar-thumb {
-    background-color: #3a3a3a;
+    background-color: $dm-border-medium;
     border-radius: 6px;
-    border: 3px solid #1e1e1e;
+    border: 3px solid $dm-bg-medium;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background-color: #4a4a4a;
+    background-color: $dm-border-light;
+  }
+
+  // Firefox scrollbar
+  scrollbar-color: $dm-border-medium $dm-bg-medium;
+  scrollbar-width: thin;
+
+  // =========================================
+  // FLASH PREVENTION - CATCH-ALL WHITE BACKGROUNDS
+  // =========================================
+
+  // Override any white backgrounds that slip through
+  [style*="background-color: white"],
+  [style*="background-color: #fff"],
+  [style*="background-color: #ffffff"],
+  [style*="background: white"],
+  [style*="background: #fff"],
+  [style*="background: #ffffff"] {
+    background-color: $dm-bg-medium !important;
+  }
+
+  // Override any elements with white class
+  .white-bg,
+  .bg-white,
+  .background-white {
+    background-color: $dm-bg-medium !important;
   }
 }
 
-// Ensure PDF preview pages stay light
+// =========================================
+// PDF Preview - Keep Light (intentional)
+// =========================================
 body.dark-mode .ef-file-preview-frame,
 body.dark-mode .file-preview-frame,
 body.dark-mode iframe.pdf-preview {
   background-color: #ffffff;
+}
+
+// =========================================
+// Prevent initial flash before CSS loads
+// =========================================
+body.dark-mode {
+  // Apply immediately to prevent white flash
+  &::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #121212;
+    z-index: -1;
+  }
 }
