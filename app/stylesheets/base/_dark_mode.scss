@@ -1221,6 +1221,560 @@ body.dark-mode {
   }
 
   // =========================================
+  // QUIZZES - COMPREHENSIVE FLASHBANG FIXES
+  // =========================================
+
+  // Quiz editing and submission backgrounds
+  .quiz-submission,
+  .question_editing,
+  #quiz_edit_wrapper,
+  .quiz_comment,
+  .quiz_sortable,
+  .question_form,
+  .form_answers,
+  .form_answers .answer,
+  .question_bank,
+  .question_holder .question {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+  }
+
+  // Quiz question and answer boxes
+  .question_text,
+  .answer_text,
+  .answer_html,
+  .question_comment,
+  .answer_comment,
+  .answer_comment_text,
+  .question_comment_text {
+    background-color: $dm-bg-light !important;
+    color: $dm-text-primary !important;
+  }
+
+  // Quiz navigation and controls
+  .quiz_nav,
+  .question-header,
+  .quiz-header,
+  #questions,
+  #quiz-question-list {
+    background-color: $dm-bg-darker !important;
+    color: $dm-text-primary !important;
+  }
+
+  // Quiz answer indicators
+  .answer_indicator,
+  .answer_arrow,
+  .correct_answer {
+    &.correct {
+      background-color: #1a5c1a !important;
+      color: #e6e6e6 !important;
+    }
+    &.incorrect {
+      background-color: #8b2424 !important;
+      color: #e6e6e6 !important;
+    }
+  }
+
+  // Quiz buttons and tabs
+  .quiz-submission .button,
+  .question-buttons,
+  .question .flag_question,
+  .question .move {
+    background-color: $dm-bg-light !important;
+    border-color: $dm-border-medium !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // GRADEBOOK - COMPREHENSIVE FLASHBANG FIXES
+  // =========================================
+
+  // Slick grid (used in gradebook)
+  .slick-header,
+  .slick-headerrow,
+  .slick-row,
+  .slick-cell {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+  }
+
+  .slick-header-column {
+    background-color: $dm-bg-light !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+  }
+
+  .odd .slick-cell,
+  .even .slick-cell {
+    background-color: $dm-bg-medium !important;
+
+    &.minimized {
+      background-color: $dm-bg-light !important;
+    }
+  }
+
+  // Gradebook grid
+  #gradebook_grid,
+  .gradebook-grid,
+  .canvas-grades,
+  #gradebook_wrapper,
+  .gradebook-menus,
+  #gradebook-actions {
+    background-color: $dm-bg-darker !important;
+    color: $dm-text-primary !important;
+  }
+
+  // Gradebook header and filter bar
+  #gradebook-filter-container,
+  .gradebook-header,
+  .section-button-tray,
+  #search-filter-container,
+  .DefaultGradebookGrid,
+  .Gradebook {
+    background-color: $dm-bg-darker !important;
+    color: $dm-text-primary !important;
+  }
+
+  // Grade cells and input
+  .grading-cell,
+  .gradebook-cell,
+  .gradebook_cell,
+  .Grid__GradeCell,
+  .grade-input {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+  }
+
+  // Total column tooltip
+  .total-column-tooltip {
+    background-color: $dm-bg-light !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // CALENDAR - COMPREHENSIVE FLASHBANG FIXES
+  // =========================================
+
+  // Calendar main container and views
+  #calendar-app,
+  .calendar-app,
+  .fc,
+  .fc-view,
+  .fc-month-view,
+  .fc-week-view,
+  .fc-agenda-view {
+    background-color: $dm-bg-darker !important;
+  }
+
+  // Calendar day cells
+  .fc-day-top,
+  .fc-day-number,
+  .fc-bg,
+  .fc-content-skeleton,
+  .fc-bgevent-skeleton {
+    background-color: transparent !important;
+    color: $dm-text-primary !important;
+  }
+
+  .fc-today {
+    background-color: rgba(79, 156, 255, 0.15) !important;
+  }
+
+  // Calendar sidebar (mini calendar)
+  .calendar-sidebar,
+  #right-side-wrapper,
+  .mini-cal,
+  .mini_calendar {
+    background-color: $dm-bg-medium !important;
+    color: $dm-text-primary !important;
+  }
+
+  // Calendar event popups
+  .fc-popover,
+  .fc-more-popover {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // CONVERSATIONS / INBOX - FLASHBANG FIXES
+  // =========================================
+
+  .message-list,
+  .message-item,
+  .message-content,
+  .message-header,
+  .conversation-header,
+  .message-item-view,
+  .conversations-container,
+  #compose-message-recipients {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+  }
+
+  .compose-message-dialog,
+  #compose-new-message,
+  .message-form {
+    background-color: $dm-bg-medium !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // GRADE SUMMARY - FLASHBANG FIXES  
+  // =========================================
+
+  #grades_summary,
+  .grade-summary,
+  .grade_details,
+  .student_assignment {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+  }
+
+  .score_holder,
+  .score_value,
+  .grade_display,
+  .grade-display {
+    background-color: $dm-bg-light !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // SPEEDGRADER - FLASHBANG FIXES
+  // =========================================
+
+  #speedgrader_iframe,
+  .speedgrader_iframe,
+  #speed_grader_assessment_audit_tray,
+  .speed-grader-panel {
+    background-color: $dm-bg-darker !important;
+    color: $dm-text-primary !important;
+  }
+
+  #gradebook_header,
+  #speed_grader_container,
+  #grading,
+  .submission_details {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // ANNOUNCEMENTS - FLASHBANG FIXES
+  // =========================================
+
+  .announcement,
+  .announcement-list,
+  .announcement-item,
+  .ic-announcement-row {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // RUBRICS - FLASHBANG FIXES
+  // =========================================
+
+  .rubric_container,
+  .rubric_table,
+  .rubric,
+  .rubric_title,
+  .rubric-criterion,
+  .rubric-ratings {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+  }
+
+  .rating-points,
+  .rating-description,
+  .rating-tier,
+  .criterion_description {
+    background-color: $dm-bg-light !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // GROUPS - FLASHBANG FIXES
+  // =========================================
+
+  .group-summary,
+  .group-item,
+  .group-category,
+  .group_category,
+  .group-user-list,
+  .groups-container {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // OUTCOMES - FLASHBANG FIXES
+  // =========================================
+
+  .outcome-group,
+  .outcome,
+  .outcome-header,
+  .outcomes-browser,
+  #outcomes {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // EPORTFOLIOS - FLASHBANG FIXES
+  // =========================================
+
+  .eportfolio-container,
+  .eportfolio_section,
+  .eportfolio-page {
+    background-color: $dm-bg-medium !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // ACCOUNT SETTINGS - FLASHBANG FIXES
+  // =========================================
+
+  .admin-links,
+  .account-settings,
+  #account_settings,
+  .settings-form,
+  .settings-table {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // COURSE PACING - FLASHBANG FIXES
+  // =========================================
+
+  .course-paces,
+  .course-paces-container,
+  .pace-plan {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // CONTENT MIGRATIONS - FLASHBANG FIXES
+  // =========================================
+
+  .content-migration,
+  .content-migration-container,
+  .import-content {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // USER PROFILE - FLASHBANG FIXES
+  // =========================================
+
+  .profile-container,
+  #profile_pic_dialog,
+  .profile_content,
+  .profile-edit,
+  .profile_links {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // SYLLABUS - FLASHBANG FIXES
+  // =========================================
+
+  .syllabus_container,
+  #syllabus,
+  .syllabus_table,
+  .syllabus-table,
+  .syllabus-event {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // CONFERENCES - FLASHBANG FIXES
+  // =========================================
+
+  .conferences-container,
+  .conference,
+  .conference-list {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // REGISTRATION / LOGIN - FLASHBANG FIXES
+  // =========================================
+
+  .ic-Login,
+  .ic-Login__content,
+  .ic-Login-form,
+  .registration-container,
+  .login-box {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // SLICK GRID VENDOR (USED IN MULTIPLE PLACES)
+  // =========================================
+
+  .slick-viewport,
+  .slick-top-panel,
+  .slick-header-columns,
+  .slick-header-column:hover {
+    background-color: $dm-bg-medium !important;
+  }
+
+  .slick-sortable-placeholder {
+    background-color: $dm-bg-light !important;
+  }
+
+  .slick-range-decorator {
+    border-color: $dm-accent-primary !important;
+  }
+
+  // =========================================
+  // BOOTSTRAP OVERRIDES - FLASHBANG FIXES
+  // =========================================
+
+  .dropdown-menu {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+
+    > li > a {
+      color: $dm-text-primary !important;
+
+      &:hover,
+      &:focus {
+        background-color: $dm-bg-light !important;
+        color: $dm-text-primary !important;
+      }
+    }
+  }
+
+  .pagination > li > a,
+  .pagination > li > span {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+
+    &:hover {
+      background-color: $dm-bg-light !important;
+    }
+  }
+
+  .btn-group .btn,
+  .btn-toolbar .btn {
+    background-color: $dm-bg-light !important;
+    border-color: $dm-border-medium !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // AUTOCOMPLETE / TOKEN INPUT - FLASHBANG FIXES
+  // =========================================
+
+  .token-input,
+  .token_input,
+  .token-selector,
+  .ui-autocomplete,
+  .ac_results,
+  .context_search_container {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+  }
+
+  .token-input-token,
+  .token {
+    background-color: $dm-bg-light !important;
+    border-color: $dm-border-medium !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // EMBEDS & IFRAMES - DARK CONTAINER
+  // =========================================
+
+  // Wrap external content in dark container
+  .tool_content_wrapper,
+  .lti-embed,
+  .lti_wrapper,
+  .external-tool-wrapper,
+  iframe:not(.pdf-preview):not(.file-preview-frame) {
+    background-color: $dm-bg-medium !important;
+  }
+
+  // =========================================
+  // BREADCRUMBS - FLASHBANG FIXES
+  // =========================================
+
+  .ic-app-crumbs,
+  #breadcrumbs,
+  .breadcrumb {
+    background-color: transparent !important;
+    color: $dm-text-secondary !important;
+
+    a {
+      color: $dm-accent-link !important;
+    }
+  }
+
+  // =========================================
+  // ITEM GROUPS - FLASHBANG FIXES
+  // =========================================
+
+  .item-group,
+  .item-group-container,
+  .item-group-condensed {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+  }
+
+  .ig-header,
+  .ig-row,
+  .ig-list {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+  }
+
+  // =========================================
+  // CODE/PRE BLOCKS - FLASHBANG FIXES
+  // =========================================
+
+  pre,
+  code,
+  .code,
+  .ic-code,
+  kbd,
+  samp {
+    background-color: $dm-bg-lighter !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
   // GLOBAL CATCH-ALL FOR REMAINING WHITES
   // =========================================
 
@@ -1228,6 +1782,16 @@ body.dark-mode {
   [style*="background-color: rgb(255, 255, 255)"],
   [style*="background-color: rgba(255, 255, 255"],
   [style*="background: rgb(255, 255, 255)"],
+  [style*="background-color: white"],
+  [style*="background: white"],
+  [style*="background-color:#fff"],
+  [style*="background:#fff"],
+  [style*="background-color: #fff"],
+  [style*="background: #fff"],
+  [style*="background-color:#ffffff"],
+  [style*="background:#ffffff"],
+  [style*="background-color: #ffffff"],
+  [style*="background: #ffffff"],
   .bg-white,
   .bg-light,
   .background-white,
@@ -1239,6 +1803,26 @@ body.dark-mode {
   .text-dark,
   .text-black {
     color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // ULTIMATE FALLBACK: Target common white patterns
+  // =========================================
+
+  // Any element with explicit white background
+  [class*="__white"],
+  [class*="-white"],
+  [class*="_white"],
+  [class*="White"] {
+    background-color: $dm-bg-medium !important;
+    color: $dm-text-primary !important;
+  }
+
+  // Any remaining light/white gradients
+  [style*="linear-gradient"][style*="255, 255, 255"],
+  [style*="linear-gradient"][style*="#fff"],
+  [style*="linear-gradient"][style*="white"] {
+    background: $dm-bg-medium !important;
   }
 }
 
