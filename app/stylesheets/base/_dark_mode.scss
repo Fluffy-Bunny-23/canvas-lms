@@ -659,6 +659,587 @@ body.dark-mode {
   .background-white {
     background-color: $dm-bg-medium !important;
   }
+
+  // =========================================
+  // MODULES PAGE - COMPREHENSIVE DARK STYLING
+  // =========================================
+
+  // Module containers
+  .context_module,
+  .context_modules {
+    background-color: $dm-bg-darker !important;
+  }
+
+  // Module headers
+  .ig-header,
+  .ig-header-admin,
+  .context_module > .header,
+  .context_module .header,
+  .ig-header-title {
+    background-color: $dm-bg-light !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+  }
+
+  // Module items
+  .ig-row,
+  .ig-row.ig-published,
+  .context_module_item,
+  .context_module_item.context_module_item_hover {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+
+    &:hover {
+      background-color: $dm-bg-light !important;
+    }
+  }
+
+  // Module item titles
+  .module-item-title,
+  .ig-title,
+  .item_name a,
+  .ig-row .ig-title a {
+    color: $dm-text-primary !important;
+  }
+
+  // Module item icons
+  .ig-row .ig-type-icon svg,
+  .module_item_icons svg {
+    fill: $dm-text-secondary !important;
+  }
+
+  // Publish icons
+  .publish-icon,
+  .publish-icon-published,
+  .publish-icon-unpublished {
+    i, svg {
+      color: inherit;
+    }
+  }
+
+  // Module collapse/expand button
+  .ig-header-btn,
+  .collapse_module_link,
+  .expand_module_link {
+    color: $dm-text-primary !important;
+    background-color: transparent !important;
+  }
+
+  // Module footer/add item areas
+  .ig-footer,
+  .add_module_item_link {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-secondary !important;
+  }
+
+  // =========================================
+  // ASSIGNMENTS PAGE - COMPREHENSIVE DARK STYLING
+  // =========================================
+
+  // Assignment details
+  .assignment-details,
+  .assignment_details,
+  #assignment_show,
+  #assignment-details-tab-panel,
+  .assignment-description {
+    background-color: $dm-bg-darker !important;
+    color: $dm-text-primary !important;
+  }
+
+  // Assignment header
+  .assignment_header,
+  .assignment-title,
+  .ig-header .name {
+    color: $dm-text-primary !important;
+  }
+
+  // Points possible box
+  .points_possible,
+  .assignment_points_possible {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-medium !important;
+    color: $dm-text-primary !important;
+  }
+
+  // Due dates
+  .assignment_dates,
+  .assignment-dates,
+  .date-due,
+  .due_date_display {
+    color: $dm-text-secondary !important;
+  }
+
+  // Assignment description/content area
+  .description,
+  .user_content,
+  #assignment_description,
+  .assignment-description {
+    background-color: $dm-bg-darker !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // FILE SUBMISSION BOX - DARK STYLING
+  // =========================================
+
+  // Submission area
+  .submit_assignment,
+  .submit_assignment_link,
+  #submit_assignment,
+  #submit_assignment_form,
+  .submission_type_form {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-medium !important;
+    color: $dm-text-primary !important;
+  }
+
+  // File upload dropzone
+  .file_upload,
+  .file-upload,
+  .file-drop-area,
+  [class*="FileDrop"],
+  [class*="file-drop"],
+  .submission_attachment {
+    background-color: $dm-bg-lighter !important;
+    border-color: $dm-border-medium !important;
+    color: $dm-text-primary !important;
+
+    &:hover,
+    &:focus {
+      background-color: $dm-bg-light !important;
+      border-color: $dm-accent-primary !important;
+    }
+  }
+
+  // File input styling
+  input[type="file"] {
+    background-color: $dm-bg-lighter !important;
+    color: $dm-text-primary !important;
+  }
+
+  // Uploaded file list
+  .submission_attachment_list,
+  .file_list,
+  .uploaded-files {
+    background-color: $dm-bg-medium !important;
+    color: $dm-text-primary !important;
+  }
+
+  // Submit button area
+  .submission_button,
+  .submit_button {
+    background-color: $dm-bg-medium !important;
+  }
+
+  // =========================================
+  // EMBEDS & IFRAMES - DARK STYLING
+  // =========================================
+
+  // LTI tool containers
+  .tool_content_wrapper,
+  .tool_content,
+  #tool_content,
+  #tool_form,
+  .lti-iframe-container,
+  [class*="lti-tool"],
+  [class*="external-tool"] {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+  }
+
+  // External tool iframes
+  iframe.tool_launch,
+  iframe.lti_tool,
+  iframe.external_tool_launch,
+  iframe[name="tool_content"],
+  #tool_content iframe,
+  .tool_content_wrapper iframe {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+  }
+
+  // Google Assignments / Google Drive embeds
+  .google-drive-lti,
+  .google_docs_container,
+  [class*="GoogleDocs"],
+  [class*="google-drive"] {
+    background-color: $dm-bg-medium !important;
+  }
+
+  // Canvas Studio / Media embeds
+  .video_player,
+  .media_comment,
+  .instructure_inline_media_comment {
+    background-color: $dm-bg-darkest !important;
+  }
+
+  // Generic embed containers
+  .embedded-content,
+  .embed-responsive,
+  .iframe-container,
+  [class*="Embed"],
+  [class*="embed-"] {
+    background-color: $dm-bg-medium !important;
+  }
+
+  // =========================================
+  // WIKI/PAGES - DARK STYLING
+  // =========================================
+
+  .wiki_page_show,
+  .wiki-page-show,
+  #wiki_page_show,
+  .page-title,
+  .page-content,
+  .show-content {
+    background-color: $dm-bg-darker !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // QUIZZES - DARK STYLING
+  // =========================================
+
+  .quiz-header,
+  .quiz_show,
+  .quiz-instructions,
+  .quiz_survey_header,
+  #quiz_show {
+    background-color: $dm-bg-darker !important;
+    color: $dm-text-primary !important;
+  }
+
+  .question,
+  .question_holder,
+  .assessment_question {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+  }
+
+  .answer,
+  .answer_text,
+  .answers {
+    background-color: $dm-bg-medium !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // DISCUSSIONS - DARK STYLING
+  // =========================================
+
+  .discussion-entries,
+  .discussion-entry,
+  .discussion_entry,
+  .discussion-section {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+  }
+
+  .discussion_subentries,
+  .replies {
+    background-color: $dm-bg-light !important;
+    border-color: $dm-border-dark !important;
+  }
+
+  .discussion_topic,
+  .topic-content {
+    background-color: $dm-bg-darker !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // GRADES - DARK STYLING
+  // =========================================
+
+  .student_grades,
+  #student_grades,
+  .grade-summary {
+    background-color: $dm-bg-darker !important;
+    color: $dm-text-primary !important;
+  }
+
+  .grading_box,
+  .grade_value,
+  .submission_score {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // CALENDAR - DARK STYLING
+  // =========================================
+
+  .calendar_container,
+  #calendar_container,
+  .fc-view-container {
+    background-color: $dm-bg-darker !important;
+    color: $dm-text-primary !important;
+  }
+
+  .fc-day,
+  .fc-day-grid-event,
+  .calendar-event {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+  }
+
+  // =========================================
+  // JQUERY UI COMPONENTS - DARK STYLING
+  // =========================================
+
+  .ui-widget,
+  .ui-widget-content {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+  }
+
+  .ui-dialog,
+  .ui-dialog-titlebar,
+  .ui-dialog-content,
+  .ui-dialog-buttonpane {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+  }
+
+  .ui-datepicker,
+  .ui-menu {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+  }
+
+  .ui-state-default,
+  .ui-widget-content .ui-state-default {
+    background-color: $dm-bg-light !important;
+    border-color: $dm-border-medium !important;
+    color: $dm-text-primary !important;
+  }
+
+  .ui-state-hover,
+  .ui-state-focus,
+  .ui-widget-content .ui-state-hover {
+    background-color: $dm-bg-lightest !important;
+    border-color: $dm-accent-primary !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // RUBRICS - DARK STYLING
+  // =========================================
+
+  .rubric,
+  .rubric_container,
+  #rubric_holder {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+  }
+
+  .rubric_table,
+  .rubric_criterion,
+  .rating {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // TINYMCE EDITOR - DARK STYLING
+  // =========================================
+
+  .tox,
+  .tox-tinymce,
+  .tox-toolbar,
+  .tox-toolbar__primary,
+  .tox-edit-area,
+  .tox-statusbar {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+  }
+
+  .tox-tbtn,
+  .tox-toolbar__group {
+    background-color: $dm-bg-light !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+
+    svg {
+      fill: $dm-text-primary !important;
+    }
+  }
+
+  .tox-editor-container,
+  .mce-content-body {
+    background-color: $dm-bg-lighter !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // ANNOUNCEMENTS - DARK STYLING
+  // =========================================
+
+  .announcement,
+  .announcements,
+  .announcement_header,
+  .ic-announcement-row {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // CONVERSATIONS/INBOX - DARK STYLING
+  // =========================================
+
+  .message-list,
+  .message-item,
+  .conversations,
+  .message-content,
+  .message-header {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // SYLLABUS - DARK STYLING
+  // =========================================
+
+  .syllabus_content,
+  #course_syllabus,
+  .syllabus_body {
+    background-color: $dm-bg-darker !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // PEOPLE/USERS - DARK STYLING
+  // =========================================
+
+  .roster,
+  .user-list,
+  .student-list,
+  .people-list {
+    background-color: $dm-bg-darker !important;
+    color: $dm-text-primary !important;
+  }
+
+  .user-card,
+  .roster-user {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // COLLABORATIONS - DARK STYLING
+  // =========================================
+
+  .collaborations,
+  .collaboration,
+  #collaborations {
+    background-color: $dm-bg-darker !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // OUTCOMES - DARK STYLING
+  // =========================================
+
+  .outcomes,
+  .outcome,
+  .learning-outcomes {
+    background-color: $dm-bg-darker !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // COURSE HOME - DARK STYLING
+  // =========================================
+
+  .course-home,
+  .ic-course-home,
+  #course_home_content {
+    background-color: $dm-bg-darker !important;
+    color: $dm-text-primary !important;
+  }
+
+  // Course tabs/nav
+  #section-tabs,
+  .section-tabs,
+  .ic-app-course-nav {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+
+    li, a {
+      color: $dm-text-primary !important;
+      background-color: transparent !important;
+
+      &:hover,
+      &.active {
+        background-color: $dm-bg-light !important;
+      }
+    }
+  }
+
+  // =========================================
+  // SPEED GRADER - DARK STYLING
+  // =========================================
+
+  #speedgrader_iframe,
+  #speed_grader_iframe,
+  .speedgrader_iframe {
+    background-color: $dm-bg-medium !important;
+  }
+
+  // =========================================
+  // FILES - DARK STYLING
+  // =========================================
+
+  .ef-main,
+  .ef-directory,
+  .ef-folder-content {
+    background-color: $dm-bg-darker !important;
+    color: $dm-text-primary !important;
+  }
+
+  .ef-item-row,
+  .ef-file-row {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+
+    &:hover {
+      background-color: $dm-bg-light !important;
+    }
+  }
+
+  // =========================================
+  // GLOBAL CATCH-ALL FOR REMAINING WHITES
+  // =========================================
+
+  // Force dark on any remaining white containers
+  [style*="background-color: rgb(255, 255, 255)"],
+  [style*="background-color: rgba(255, 255, 255"],
+  [style*="background: rgb(255, 255, 255)"],
+  .bg-white,
+  .bg-light,
+  .background-white,
+  .background-light {
+    background-color: $dm-bg-medium !important;
+  }
+
+  // Force dark text on any remaining dark-on-dark issues
+  .text-dark,
+  .text-black {
+    color: $dm-text-primary !important;
+  }
 }
 
 // =========================================
