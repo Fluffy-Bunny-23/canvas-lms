@@ -1834,6 +1834,23 @@ body.dark-mode {
     background-color: transparent !important;
   }
 
+  // FullCalendar additional fixes
+  .fc-body,
+  .fc-row,
+  .fc-day,
+  .fc-day-grid,
+  .fc-day-top,
+  .fc-content-skeleton,
+  .fc-bgevent-skeleton,
+  .fc-highlight-skeleton {
+    background-color: $dm-bg-medium !important;
+  }
+
+  #calendar-list-holder,
+  .calendar-list-holder {
+    background-color: $dm-bg-medium !important;
+  }
+
   // =========================================
   // ULTIMATE FALLBACK: Target common white patterns
   // =========================================
