@@ -1870,6 +1870,300 @@ body.dark-mode {
   [style*="linear-gradient"][style*="white"] {
     background: $dm-bg-medium !important;
   }
+
+  // =========================================
+  // ISSUE #1: Course page Published/Unpublished Dropdown
+  // Letters not showing - need white text
+  // =========================================
+  .course-status-dropdown,
+  .publish-status-toggle,
+  .btn-publish,
+  .btn-unpublish,
+  [class*="PublishButton"],
+  [class*="publishButton"],
+  .publish-icon-publish,
+  .publish-icon-unpublish,
+  .ig-header .published-status,
+  .ig-row .published-status,
+  .module-publish-link,
+  .context_module .ig-header-admin .module_workflow_state_link,
+  .icon-publish,
+  .icon-unpublish,
+  .icon-unpublished {
+    color: $dm-text-primary !important;
+  }
+
+  // Publish button menu/dropdown
+  .publish-menu,
+  .publish-options,
+  .ui-menu.publish-options,
+  .published-status-dropdown {
+    background-color: $dm-bg-medium !important;
+    color: $dm-text-primary !important;
+    border-color: $dm-border-medium !important;
+  }
+
+  .publish-menu li,
+  .publish-options li,
+  .published-status-dropdown li {
+    background-color: $dm-bg-medium !important;
+    color: $dm-text-primary !important;
+
+    &:hover {
+      background-color: $dm-bg-light !important;
+    }
+
+    a, button, span {
+      color: $dm-text-primary !important;
+    }
+  }
+
+  // =========================================
+  // ISSUE #2: Modules page Progress/Publish status bar
+  // White background should be dark
+  // =========================================
+  .header-bar,
+  .header-bar-outer-container,
+  .header-bar-right,
+  .module-actions,
+  #context_modules_sortable_container .header-bar,
+  .context-modules-header,
+  #context-modules-header,
+  .modules-header,
+  .context_module .ig-header,
+  .context_module .ig-header-admin,
+  #context-modules .header-bar {
+    background-color: $dm-bg-medium !important;
+    color: $dm-text-primary !important;
+    border-color: $dm-border-medium !important;
+  }
+
+  // Module header bar buttons
+  .header-bar .btn,
+  .header-bar button,
+  .header-bar-right .btn,
+  .header-bar-right button {
+    background-color: $dm-bg-light !important;
+    color: $dm-text-primary !important;
+    border-color: $dm-border-medium !important;
+  }
+
+  // =========================================
+  // ISSUE #3: Modules page Course status dropdown
+  // White bg should be dark
+  // =========================================
+  .course-state-selector,
+  .course-state-dropdown,
+  #course-status,
+  .course-status,
+  .publish_course_link,
+  .unpublish_course_link,
+  [data-component="CoursePacing"],
+  [data-testid="course-status"],
+  .course-pacing-dropdown,
+  #course_status_form,
+  #course_status_actions,
+  .course_publish_button,
+  .btn-course-publish,
+  .ic-DashboardCard__header_hero,
+  .course-card-status {
+    background-color: $dm-bg-light !important;
+    color: $dm-text-primary !important;
+    border-color: $dm-border-medium !important;
+  }
+
+  .course-state-selector select,
+  .course-status select,
+  #course_status select {
+    background-color: $dm-bg-lighter !important;
+    color: $dm-text-primary !important;
+    border-color: $dm-border-medium !important;
+  }
+
+  // =========================================
+  // ISSUE #4: Assignments page visibility icons
+  // Ovals are white with wrong icon colors
+  // =========================================
+  .assignment-visibility-icon,
+  .icon-visibility,
+  .icon-visibility-off,
+  .icon-off,
+  [class*="visibility-icon"],
+  [class*="VisibilityIcon"],
+  .assignment_icon_visibility,
+  .ig-row .assignment-visibility,
+  .assignment-list .visibility,
+  .icon-eye,
+  .icon-eye-slash,
+  .visibility-pill,
+  .visibility-badge,
+  [data-testid="visibility-icon"],
+  .assignment-visibility-pill {
+    background-color: $dm-bg-light !important;
+    color: $dm-text-primary !important;
+    fill: $dm-text-primary !important;
+    border-color: $dm-border-medium !important;
+  }
+
+  // Fix visibility icon SVGs
+  .icon-visibility svg,
+  .icon-visibility-off svg,
+  .visibility-pill svg,
+  .assignment-visibility-icon svg {
+    fill: $dm-text-primary !important;
+    color: $dm-text-primary !important;
+  }
+
+  // Crossed out eyeball icon
+  .icon-off,
+  .icon-unpublished,
+  .icon-visibility-off {
+    background-color: $dm-bg-light !important;
+    color: $dm-text-primary !important;
+    fill: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // ISSUE #5: Calendar mini calendar (top right)
+  // White boxes around days
+  // =========================================
+  // Mini calendar in sidebar
+  .calendar-sidebar .mini-calendar,
+  .mini_calendar,
+  #mini_calendar,
+  .mini_calendar_container,
+  .calendar__day,
+  .mini-cal,
+  .mini-cal-header,
+  .mini-cal-body,
+  .mini-cal-day,
+  .fc-daygrid-day-frame,
+  .fc-daygrid-day-top,
+  .fc-daygrid-day-number,
+  #right-side .calendar-day,
+  #right-side-wrapper .calendar_container,
+  .calendar_container,
+  .calendar_day {
+    background-color: $dm-bg-medium !important;
+    color: $dm-text-primary !important;
+    border-color: $dm-border-dark !important;
+  }
+
+  // Mini calendar table cells
+  .mini_calendar td,
+  .mini_calendar th,
+  .mini-calendar td,
+  .mini-calendar th,
+  #mini_calendar td,
+  #mini_calendar th,
+  .mini_calendar_container td,
+  .mini_calendar_container th {
+    background-color: $dm-bg-medium !important;
+    color: $dm-text-primary !important;
+    border-color: $dm-border-dark !important;
+  }
+
+  // Mini calendar hover states
+  .mini_calendar td:hover,
+  .mini-calendar td:hover,
+  #mini_calendar td:hover {
+    background-color: $dm-bg-light !important;
+  }
+
+  // Calendar picker in other areas
+  .calendar-button,
+  .ui-datepicker-trigger {
+    background-color: $dm-bg-light !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // ISSUE #6: Inbox "No Conversations to Show"
+  // Text is dark blue, should be white
+  // =========================================
+  .no-messages,
+  .empty-text,
+  .conversations-empty,
+  .no-conversations,
+  [class*="empty-state"],
+  [class*="emptyState"],
+  [class*="EmptyState"],
+  .message-list-empty,
+  .message-list__empty,
+  .inbox-empty,
+  .inbox__empty,
+  .null-state-message,
+  .null-state-text,
+  .empty-conversations,
+  .conversations__empty,
+  #conversation_list .no-messages,
+  #inbox .empty-message,
+  .messages-empty,
+  .message-center-empty {
+    color: $dm-text-primary !important;
+  }
+
+  // Also ensure any child elements have correct color
+  .no-messages *,
+  .empty-text *,
+  .conversations-empty *,
+  .no-conversations *,
+  .null-state-message *,
+  .null-state-text *,
+  .inbox-empty *,
+  .messages-empty * {
+    color: $dm-text-primary !important;
+  }
+
+  // Inbox SVG icons in empty state
+  .conversations-empty svg,
+  .no-conversations svg,
+  .empty-state svg,
+  .inbox-empty svg {
+    fill: $dm-text-muted !important;
+  }
+
+  // =========================================
+  // ISSUE #7: Student View Mode
+  // Should preserve dark mode when teacher enters student view
+  // (This is handled by Rails - user preference)
+  // But we need to ensure student-view-specific elements are styled
+  // =========================================
+  .student-view-banner,
+  .student_view_banner,
+  #student-view-notice,
+  .student-view-mode-notice,
+  [data-testid="student-view-banner"],
+  .reset-student-button,
+  .leave-student-view {
+    background-color: $dm-bg-light !important;
+    color: $dm-text-primary !important;
+    border-color: $dm-border-medium !important;
+  }
+
+  .student-view-banner a,
+  .student_view_banner a,
+  .leave-student-view a {
+    color: $dm-accent-link !important;
+  }
+
+  // Student dashboard cards
+  .ic-DashboardCard,
+  .dashboard-card,
+  .student-planner-item,
+  .PlannerItem,
+  .planner-item {
+    background-color: $dm-bg-medium !important;
+    color: $dm-text-primary !important;
+    border-color: $dm-border-medium !important;
+  }
+
+  // Student view course navigation
+  .student-view .course-navigation,
+  .student-view .nav-item {
+    background-color: $dm-bg-dark !important;
+    color: $dm-text-primary !important;
+  }
 }
 
 // =========================================
