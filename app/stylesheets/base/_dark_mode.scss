@@ -1,0 +1,2176 @@
+/*
+ * Copyright (C) 2026 - present Instructure, Inc.
+ *
+ * This file is part of Canvas.
+ *
+ * Canvas is free software: you can redistribute it and/or modify it under
+ * the terms of the GNU Affero General Public License as published by the Free
+ * Software Foundation, version 3 of the License.
+ *
+ * Canvas is distributed in the hope that it will be useful, but WITHOUT ANY
+ * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
+ * A PARTICULAR PURPOSE. See the GNU Affero General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Affero General Public License along
+ * with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+// Dark Mode Theme
+// ================
+// This file defines CSS custom properties for dark mode.
+// It is applied when the body has the 'dark-mode' class.
+// These variables override the default Canvas brand variables
+// while preserving the ability for institution branding to work.
+
+// =========================================
+// Dark Mode Color Palette
+// =========================================
+$dm-bg-darkest: #0d0d0d;      // Deepest background
+$dm-bg-darker: #121212;        // Main page background
+$dm-bg-dark: #1a1a1a;          // Sidebar, nav background
+$dm-bg-medium: #1e1e1e;        // Cards, panels
+$dm-bg-light: #252525;         // Hover states, elevated elements
+$dm-bg-lighter: #2a2a2a;       // Input fields, code blocks
+$dm-bg-lightest: #333333;      // Active states
+
+$dm-border-dark: #2c2c2c;      // Subtle borders
+$dm-border-medium: #3a3a3a;    // Standard borders
+$dm-border-light: #4a4a4a;     // Emphasized borders
+
+$dm-text-primary: #e6e6e6;     // Primary text
+$dm-text-secondary: #b3b3b3;   // Secondary text
+$dm-text-muted: #888888;       // Muted/placeholder text
+
+$dm-accent-primary: #4f9cff;   // Primary accent (blue)
+$dm-accent-link: #6ea8ff;      // Link color
+$dm-accent-hover: #8fb8ff;     // Link hover
+
+body.dark-mode {
+  // =========================================
+  // CSS Custom Properties (Brand Variables)
+  // =========================================
+
+  // Primary brand colors
+  --ic-brand-primary: #{$dm-accent-primary};
+  --ic-brand-font-color-dark: #{$dm-text-primary};
+  --ic-link-color: #{$dm-accent-link};
+
+  // Button colors
+  --ic-brand-button--primary-bgd: #{$dm-accent-primary};
+  --ic-brand-button--primary-text: #{$dm-bg-darker};
+  --ic-brand-button--secondary-bgd: #{$dm-bg-lightest};
+  --ic-brand-button--secondary-text: #{$dm-text-primary};
+
+  // Global Navigation colors - CRITICAL for sidebar
+  --ic-brand-global-nav-bgd: #{$dm-bg-dark};
+  --ic-brand-global-nav-ic-icon-svg-fill: #{$dm-text-primary};
+  --ic-brand-global-nav-ic-icon-svg-fill--active: #{$dm-accent-primary};
+  --ic-brand-global-nav-menu-item__text-color: #{$dm-text-primary};
+  --ic-brand-global-nav-menu-item__text-color--active: #{$dm-accent-link};
+  --ic-brand-global-nav-avatar-border: #{$dm-border-light};
+  --ic-brand-global-nav-menu-item__badge-bgd: #{$dm-accent-primary};
+  --ic-brand-global-nav-menu-item__badge-text: #{$dm-bg-darker};
+  --ic-brand-global-nav-logo-bgd: #{$dm-bg-dark};
+
+  // =========================================
+  // Base Page Styles
+  // =========================================
+  background-color: $dm-bg-darker !important;
+  color: $dm-text-primary;
+
+  // =========================================
+  // SIDEBAR & NAVIGATION - FLASHBANG FIXES
+  // =========================================
+
+  // Main sidebar header
+  .ic-app-header {
+    background-color: $dm-bg-dark !important;
+  }
+
+  // Fix sidebar nav hover/active states (prevent white flashbang)
+  .ic-app-header__menu-list-item {
+    &.ic-app-header__menu-list-item--active {
+      .ic-app-header__menu-list-link {
+        background: $dm-bg-light !important;
+      }
+    }
+  }
+
+  // InstUI SideNav overrides - CRITICAL
+  #instui-sidenav {
+    background-color: $dm-bg-dark !important;
+  }
+
+  // Fix profile tray and other nav items hover/active states
+  #profile-tray,
+  #accounts-tray,
+  #dashboard-tray,
+  #courses-tray,
+  #calendar-tray,
+  #conversations-tray,
+  #history-tray,
+  #help-tray,
+  [id$="-external-tool-tray"] {
+    &:hover,
+    &:focus {
+      background-color: rgba(255, 255, 255, 0.1) !important;
+    }
+
+    &[data-selected="true"] {
+      background-color: $dm-bg-light !important;
+
+      &:hover,
+      &:focus {
+        background-color: $dm-bg-lightest !important;
+      }
+    }
+  }
+
+  // Navigation tray panels (when expanded)
+  .navigation-tray-container,
+  [class*="tray"] {
+    background-color: $dm-bg-medium !important;
+  }
+
+  // =========================================
+  // PROFILE TRAY / DIALOG - FLASHBANG FIX
+  // =========================================
+
+  // Profile tray (slide-out panel)
+  [role="dialog"] {
+    background-color: $dm-bg-medium !important;
+    color: $dm-text-primary !important;
+
+    // Close button and other controls
+    button {
+      color: $dm-text-primary;
+    }
+  }
+
+  // InstUI Tray component
+  [class*="tray__content"],
+  [class*="Tray-content"],
+  [class*="tray-content"] {
+    background-color: $dm-bg-medium !important;
+  }
+
+  // =========================================
+  // MAIN CONTENT AREA
+  // =========================================
+
+  #wrapper,
+  .ic-Layout-wrapper {
+    background-color: $dm-bg-darker !important;
+  }
+
+  .ic-Layout-contentMain,
+  #content,
+  .ic-app-main-content {
+    background-color: $dm-bg-darker !important;
+  }
+
+  .ic-Dashboard-header,
+  .ic-app-content-wrapper,
+  .content-wrapper {
+    background-color: $dm-bg-darker !important;
+  }
+
+  // =========================================
+  // CARDS, PANELS, CONTAINERS
+  // =========================================
+
+  // Dashboard cards
+  .ic-DashboardCard,
+  .ic-DashboardCard__header {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+  }
+
+  .ic-DashboardCard__header_content,
+  .ic-DashboardCard__action-container {
+    background-color: transparent !important;
+  }
+
+  // Generic cards and panels
+  .card,
+  .panel,
+  .well,
+  .box {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+  }
+
+  // Info boxes and alerts - style appropriately for dark mode
+  .ic-notification,
+  .notification,
+  [class*="Alert"],
+  [class*="alert"] {
+    background-color: $dm-bg-light !important;
+    border-color: $dm-border-medium !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // DASHBOARD SPECIFIC FIXES - FLASHBANG PREVENTION
+  // =========================================
+
+  // Info/notification boxes on dashboard (Welcome to Canvas, etc.)
+  .ic-flash-info,
+  .ic-flash-success,
+  .ic-flash-warning,
+  .ic-flash-error,
+  .ic-notification,
+  .ic-notification__content,
+  [class*="flashalert"],
+  [class*="FlashAlert"] {
+    background-color: $dm-bg-light !important;
+    border-color: $dm-border-medium !important;
+    color: $dm-text-primary !important;
+  }
+
+  // InstUI Alert and Billboard components
+  [class*="Billboard"],
+  [class*="billboard"] {
+    background-color: $dm-bg-medium !important;
+    color: $dm-text-primary !important;
+  }
+
+  // Dashboard welcome/info cards
+  .ic-DashboardCard__box,
+  .dashboard-activity,
+  .todo-list-header,
+  .coming_up,
+  .Sidebar__TodoListContainer,
+  [class*="DashboardCard"],
+  [class*="dashboardCard"] {
+    background-color: $dm-bg-medium !important;
+    color: $dm-text-primary !important;
+  }
+
+  // InstUI View components that might have white backgrounds
+  [class*="-view"],
+  [class*="View__"],
+  [class*="view__"] {
+    &:not([class*="preview"]) {
+      background-color: inherit;
+    }
+  }
+
+  // Specific InstUI components with backgrounds
+  [class*="FormFieldGroup"],
+  [class*="FormField"],
+  [class*="RadioInput"],
+  [class*="Checkbox__facade"] {
+    background-color: transparent !important;
+  }
+
+  // Dashboard card placeholder images/empty state
+  .ic-DashboardCard__placeholder,
+  [class*="placeholder"],
+  [class*="EmptyState"],
+  [class*="emptyState"] {
+    background-color: $dm-bg-medium !important;
+  }
+
+  // SVG and icon coloring
+  svg:not([class*="brand"]) {
+    fill: currentColor;
+  }
+
+  // Fix white text on light elements
+  .ic-DashboardCard__header-title,
+  .ic-DashboardCard__header-subtitle {
+    color: $dm-text-primary !important;
+  }
+
+  // Kill any remaining white/light gray backgrounds on the main dashboard
+  #dashboard,
+  .dashboard,
+  #dashboard_header_container,
+  .ic-Dashboard-header__layout {
+    background-color: $dm-bg-darker !important;
+  }
+
+  // Dashboard options/card section
+  #DashboardOptionsMenu,
+  [class*="DashboardOptionsMenu"] {
+    background-color: $dm-bg-medium !important;
+  }
+
+  // Announcement/info boxes with white backgrounds
+  .ic-item-row,
+  .announcement,
+  .announcements {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+  }
+
+  // Force dark on any div with white inline styles in dashboard
+  #content,
+  #main {
+    background-color: $dm-bg-darker !important;
+
+    > div,
+    > section,
+    > article {
+      background-color: inherit;
+    }
+  }
+
+  // =========================================
+  // TABLES AND LISTS
+  // =========================================
+
+  table,
+  .table,
+  .item-group,
+  .ig-list {
+    background-color: $dm-bg-medium !important;
+    color: $dm-text-primary !important;
+  }
+
+  table th,
+  table td,
+  .table th,
+  .table td {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+  }
+
+  table thead th,
+  .table thead th {
+    background-color: $dm-bg-light !important;
+  }
+
+  table tbody tr:hover,
+  .table tbody tr:hover {
+    background-color: $dm-bg-light !important;
+  }
+
+  // =========================================
+  // FORM ELEMENTS
+  // =========================================
+
+  input,
+  textarea,
+  select,
+  .ic-Input,
+  [class*="Input"],
+  [class*="TextInput"],
+  [class*="TextArea"],
+  [class*="Select"] {
+    background-color: $dm-bg-lighter !important;
+    color: $dm-text-primary !important;
+    border-color: $dm-border-medium !important;
+
+    &::placeholder {
+      color: $dm-text-muted !important;
+    }
+
+    &:focus {
+      border-color: $dm-accent-primary !important;
+      box-shadow: 0 0 0 2px rgba($dm-accent-primary, 0.3) !important;
+    }
+  }
+
+  // Checkboxes and toggles
+  [class*="Checkbox"],
+  [class*="Toggle"] {
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // BUTTONS
+  // =========================================
+
+  .btn,
+  .Button,
+  button:not([class*="close"]) {
+    &:not(.btn-primary):not(.Button--primary):not([class*="primary"]) {
+      background-color: $dm-bg-lightest !important;
+      border-color: $dm-border-medium !important;
+      color: $dm-text-primary !important;
+
+      &:hover {
+        background-color: $dm-border-medium !important;
+      }
+    }
+  }
+
+  // =========================================
+  // LINKS
+  // =========================================
+
+  a:not(.btn):not(.Button):not([class*="Button"]) {
+    color: $dm-accent-link;
+
+    &:hover,
+    &:focus {
+      color: $dm-accent-hover;
+    }
+  }
+
+  // =========================================
+  // MODALS AND DIALOGS
+  // =========================================
+
+  .ReactModal__Content,
+  .ui-dialog,
+  .modal-content,
+  [class*="Modal"],
+  [role="dialog"] > div {
+    background-color: $dm-bg-medium !important;
+    color: $dm-text-primary !important;
+    border-color: $dm-border-dark !important;
+  }
+
+  .modal-header,
+  .modal-footer,
+  .ui-dialog-titlebar,
+  .ui-dialog-buttonpane {
+    background-color: $dm-bg-light !important;
+    border-color: $dm-border-dark !important;
+  }
+
+  // Modal overlay
+  .ReactModal__Overlay,
+  .modal-backdrop,
+  .ui-widget-overlay {
+    background-color: rgba(0, 0, 0, 0.7) !important;
+  }
+
+  // =========================================
+  // DROPDOWNS AND MENUS
+  // =========================================
+
+  .dropdown-menu,
+  [class*="Menu"],
+  [class*="Popover"],
+  [role="menu"],
+  [role="listbox"] {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+
+    li,
+    [role="menuitem"],
+    [role="option"] {
+      color: $dm-text-primary !important;
+
+      &:hover,
+      &:focus {
+        background-color: $dm-bg-light !important;
+      }
+    }
+  }
+
+  // =========================================
+  // TOOLTIPS
+  // =========================================
+
+  [class*="Tooltip"],
+  .tooltip,
+  .ui-tooltip {
+    background-color: $dm-bg-lightest !important;
+    color: $dm-text-primary !important;
+    border-color: $dm-border-medium !important;
+  }
+
+  // =========================================
+  // BREADCRUMBS
+  // =========================================
+
+  .ic-app-crumbs,
+  [class*="Breadcrumb"] {
+    background-color: transparent !important;
+
+    a {
+      color: $dm-accent-link !important;
+    }
+  }
+
+  // =========================================
+  // COURSE NAVIGATION (LEFT SIDEBAR IN COURSES)
+  // =========================================
+
+  .ic-app-course-menu,
+  #section-tabs,
+  .course-menu {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+
+    a {
+      color: $dm-text-primary !important;
+
+      &:hover {
+        background-color: $dm-bg-light !important;
+      }
+
+      &.active {
+        background-color: $dm-bg-lightest !important;
+        color: $dm-accent-link !important;
+      }
+    }
+  }
+
+  // =========================================
+  // RIGHT SIDEBAR
+  // =========================================
+
+  #right-side,
+  .right-side {
+    background-color: transparent !important;
+
+    .rs-margin-all,
+    .rs-margin-lr,
+    .todo-list,
+    .coming-up {
+      background-color: $dm-bg-medium !important;
+      border-color: $dm-border-dark !important;
+      color: $dm-text-primary !important;
+    }
+  }
+
+  // =========================================
+  // MODULE ITEMS
+  // =========================================
+
+  .ig-row,
+  .context_module_item {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+
+    &:hover {
+      background-color: $dm-bg-light !important;
+    }
+  }
+
+  .ig-header,
+  .context_module,
+  .item-group-condensed .ig-header {
+    background-color: $dm-bg-light !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // DISCUSSIONS
+  // =========================================
+
+  .discussion-entries,
+  .discussion-entry,
+  .discussion_entry {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+  }
+
+  // =========================================
+  // ASSIGNMENTS
+  // =========================================
+
+  .assignment,
+  .submission_details,
+  #assignment_show {
+    background-color: $dm-bg-medium !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // CODE BLOCKS
+  // =========================================
+
+  pre,
+  code,
+  .code {
+    background-color: $dm-bg-lighter !important;
+    color: $dm-text-primary !important;
+    border-color: $dm-border-medium !important;
+  }
+
+  // =========================================
+  // INSTUI COMPONENT OVERRIDES
+  // =========================================
+
+  // View component backgrounds
+  [class*="View-"] {
+    &[style*="background"] {
+      background-color: $dm-bg-medium !important;
+    }
+  }
+
+  // Heading colors
+  h1, h2, h3, h4, h5, h6,
+  [class*="Heading"] {
+    color: $dm-text-primary !important;
+  }
+
+  // Text colors
+  [class*="Text"] {
+    color: inherit !important;
+  }
+
+  // =========================================
+  // SCROLLBARS (Colors only - no size changes)
+  // =========================================
+
+  ::-webkit-scrollbar-track {
+    background: $dm-bg-medium;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: $dm-border-medium;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: $dm-border-light;
+  }
+
+  // Firefox scrollbar
+  scrollbar-color: $dm-border-medium $dm-bg-medium;
+  scrollbar-width: thin;
+
+  // =========================================
+  // FLASH PREVENTION - CATCH-ALL WHITE BACKGROUNDS
+  // =========================================
+
+  // Override any white backgrounds that slip through
+  [style*="background-color: white"],
+  [style*="background-color: #fff"],
+  [style*="background-color: #ffffff"],
+  [style*="background: white"],
+  [style*="background: #fff"],
+  [style*="background: #ffffff"] {
+    background-color: $dm-bg-medium !important;
+  }
+
+  // Override any elements with white class
+  .white-bg,
+  .bg-white,
+  .background-white {
+    background-color: $dm-bg-medium !important;
+  }
+
+  // =========================================
+  // MODULES PAGE - COMPREHENSIVE DARK STYLING
+  // =========================================
+
+  // Module containers
+  .context_module,
+  .context_modules {
+    background-color: $dm-bg-darker !important;
+  }
+
+  // Module headers
+  .ig-header,
+  .ig-header-admin,
+  .context_module > .header,
+  .context_module .header,
+  .ig-header-title {
+    background-color: $dm-bg-light !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+  }
+
+  // Module items
+  .ig-row,
+  .ig-row.ig-published,
+  .context_module_item,
+  .context_module_item.context_module_item_hover {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+
+    &:hover {
+      background-color: $dm-bg-light !important;
+    }
+  }
+
+  // Module item titles
+  .module-item-title,
+  .ig-title,
+  .item_name a,
+  .ig-row .ig-title a {
+    color: $dm-text-primary !important;
+  }
+
+  // Module item icons
+  .ig-row .ig-type-icon svg,
+  .module_item_icons svg {
+    fill: $dm-text-secondary !important;
+  }
+
+  // Publish icons
+  .publish-icon,
+  .publish-icon-published,
+  .publish-icon-unpublished {
+    i, svg {
+      color: inherit;
+    }
+  }
+
+  // Module collapse/expand button
+  .ig-header-btn,
+  .collapse_module_link,
+  .expand_module_link {
+    color: $dm-text-primary !important;
+    background-color: transparent !important;
+  }
+
+  // Module footer/add item areas
+  .ig-footer,
+  .add_module_item_link {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-secondary !important;
+  }
+
+  // =========================================
+  // ASSIGNMENTS PAGE - COMPREHENSIVE DARK STYLING
+  // =========================================
+
+  // Assignment details
+  .assignment-details,
+  .assignment_details,
+  #assignment_show,
+  #assignment-details-tab-panel,
+  .assignment-description {
+    background-color: $dm-bg-darker !important;
+    color: $dm-text-primary !important;
+  }
+
+  // Assignment header
+  .assignment_header,
+  .assignment-title,
+  .ig-header .name {
+    color: $dm-text-primary !important;
+  }
+
+  // Points possible box
+  .points_possible,
+  .assignment_points_possible {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-medium !important;
+    color: $dm-text-primary !important;
+  }
+
+  // Due dates
+  .assignment_dates,
+  .assignment-dates,
+  .date-due,
+  .due_date_display {
+    color: $dm-text-secondary !important;
+  }
+
+  // Assignment description/content area
+  .description,
+  .user_content,
+  #assignment_description,
+  .assignment-description {
+    background-color: $dm-bg-darker !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // FILE SUBMISSION BOX - DARK STYLING
+  // =========================================
+
+  // Submission area
+  .submit_assignment,
+  .submit_assignment_link,
+  #submit_assignment,
+  #submit_assignment_form,
+  .submission_type_form {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-medium !important;
+    color: $dm-text-primary !important;
+  }
+
+  // File upload dropzone
+  .file_upload,
+  .file-upload,
+  .file-drop-area,
+  [class*="FileDrop"],
+  [class*="file-drop"],
+  .submission_attachment {
+    background-color: $dm-bg-lighter !important;
+    border-color: $dm-border-medium !important;
+    color: $dm-text-primary !important;
+
+    &:hover,
+    &:focus {
+      background-color: $dm-bg-light !important;
+      border-color: $dm-accent-primary !important;
+    }
+  }
+
+  // File input styling
+  input[type="file"] {
+    background-color: $dm-bg-lighter !important;
+    color: $dm-text-primary !important;
+  }
+
+  // Uploaded file list
+  .submission_attachment_list,
+  .file_list,
+  .uploaded-files {
+    background-color: $dm-bg-medium !important;
+    color: $dm-text-primary !important;
+  }
+
+  // Submit button area
+  .submission_button,
+  .submit_button {
+    background-color: $dm-bg-medium !important;
+  }
+
+  // =========================================
+  // EMBEDS & IFRAMES - DARK STYLING
+  // =========================================
+
+  // LTI tool containers
+  .tool_content_wrapper,
+  .tool_content,
+  #tool_content,
+  #tool_form,
+  .lti-iframe-container,
+  [class*="lti-tool"],
+  [class*="external-tool"] {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+  }
+
+  // External tool iframes
+  iframe.tool_launch,
+  iframe.lti_tool,
+  iframe.external_tool_launch,
+  iframe[name="tool_content"],
+  #tool_content iframe,
+  .tool_content_wrapper iframe {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+  }
+
+  // Google Assignments / Google Drive embeds
+  .google-drive-lti,
+  .google_docs_container,
+  [class*="GoogleDocs"],
+  [class*="google-drive"] {
+    background-color: $dm-bg-medium !important;
+  }
+
+  // Canvas Studio / Media embeds
+  .video_player,
+  .media_comment,
+  .instructure_inline_media_comment {
+    background-color: $dm-bg-darkest !important;
+  }
+
+  // Generic embed containers
+  .embedded-content,
+  .embed-responsive,
+  .iframe-container,
+  [class*="Embed"],
+  [class*="embed-"] {
+    background-color: $dm-bg-medium !important;
+  }
+
+  // =========================================
+  // WIKI/PAGES - DARK STYLING
+  // =========================================
+
+  .wiki_page_show,
+  .wiki-page-show,
+  #wiki_page_show,
+  .page-title,
+  .page-content,
+  .show-content {
+    background-color: $dm-bg-darker !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // QUIZZES - DARK STYLING
+  // =========================================
+
+  .quiz-header,
+  .quiz_show,
+  .quiz-instructions,
+  .quiz_survey_header,
+  #quiz_show {
+    background-color: $dm-bg-darker !important;
+    color: $dm-text-primary !important;
+  }
+
+  .question,
+  .question_holder,
+  .assessment_question {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+  }
+
+  .answer,
+  .answer_text,
+  .answers {
+    background-color: $dm-bg-medium !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // DISCUSSIONS - DARK STYLING
+  // =========================================
+
+  .discussion-entries,
+  .discussion-entry,
+  .discussion_entry,
+  .discussion-section {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+  }
+
+  .discussion_subentries,
+  .replies {
+    background-color: $dm-bg-light !important;
+    border-color: $dm-border-dark !important;
+  }
+
+  .discussion_topic,
+  .topic-content {
+    background-color: $dm-bg-darker !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // GRADES - DARK STYLING
+  // =========================================
+
+  .student_grades,
+  #student_grades,
+  .grade-summary {
+    background-color: $dm-bg-darker !important;
+    color: $dm-text-primary !important;
+  }
+
+  .grading_box,
+  .grade_value,
+  .submission_score {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // CALENDAR - DARK STYLING
+  // =========================================
+
+  .calendar_container,
+  #calendar_container,
+  .fc-view-container {
+    background-color: $dm-bg-darker !important;
+    color: $dm-text-primary !important;
+  }
+
+  .fc-day,
+  .fc-day-grid-event,
+  .calendar-event {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+  }
+
+  // =========================================
+  // JQUERY UI COMPONENTS - DARK STYLING
+  // =========================================
+
+  .ui-widget,
+  .ui-widget-content {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+  }
+
+  .ui-dialog,
+  .ui-dialog-titlebar,
+  .ui-dialog-content,
+  .ui-dialog-buttonpane {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+  }
+
+  .ui-datepicker,
+  .ui-menu {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+  }
+
+  .ui-state-default,
+  .ui-widget-content .ui-state-default {
+    background-color: $dm-bg-light !important;
+    border-color: $dm-border-medium !important;
+    color: $dm-text-primary !important;
+  }
+
+  .ui-state-hover,
+  .ui-state-focus,
+  .ui-widget-content .ui-state-hover {
+    background-color: $dm-bg-lightest !important;
+    border-color: $dm-accent-primary !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // RUBRICS - DARK STYLING
+  // =========================================
+
+  .rubric,
+  .rubric_container,
+  #rubric_holder {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+  }
+
+  .rubric_table,
+  .rubric_criterion,
+  .rating {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // TINYMCE EDITOR - DARK STYLING
+  // =========================================
+
+  .tox,
+  .tox-tinymce,
+  .tox-toolbar,
+  .tox-toolbar__primary,
+  .tox-edit-area,
+  .tox-statusbar {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+  }
+
+  .tox-tbtn,
+  .tox-toolbar__group {
+    background-color: $dm-bg-light !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+
+    svg {
+      fill: $dm-text-primary !important;
+    }
+  }
+
+  .tox-editor-container,
+  .mce-content-body {
+    background-color: $dm-bg-lighter !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // ANNOUNCEMENTS - DARK STYLING
+  // =========================================
+
+  .announcement,
+  .announcements,
+  .announcement_header,
+  .ic-announcement-row {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // CONVERSATIONS/INBOX - DARK STYLING
+  // =========================================
+
+  .message-list,
+  .message-item,
+  .conversations,
+  .message-content,
+  .message-header {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // SYLLABUS - DARK STYLING
+  // =========================================
+
+  .syllabus_content,
+  #course_syllabus,
+  .syllabus_body {
+    background-color: $dm-bg-darker !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // PEOPLE/USERS - DARK STYLING
+  // =========================================
+
+  .roster,
+  .user-list,
+  .student-list,
+  .people-list {
+    background-color: $dm-bg-darker !important;
+    color: $dm-text-primary !important;
+  }
+
+  .user-card,
+  .roster-user {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // COLLABORATIONS - DARK STYLING
+  // =========================================
+
+  .collaborations,
+  .collaboration,
+  #collaborations {
+    background-color: $dm-bg-darker !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // OUTCOMES - DARK STYLING
+  // =========================================
+
+  .outcomes,
+  .outcome,
+  .learning-outcomes {
+    background-color: $dm-bg-darker !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // COURSE HOME - DARK STYLING
+  // =========================================
+
+  .course-home,
+  .ic-course-home,
+  #course_home_content {
+    background-color: $dm-bg-darker !important;
+    color: $dm-text-primary !important;
+  }
+
+  // Course tabs/nav
+  #section-tabs,
+  .section-tabs,
+  .ic-app-course-nav {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+
+    li, a {
+      color: $dm-text-primary !important;
+      background-color: transparent !important;
+
+      &:hover,
+      &.active {
+        background-color: $dm-bg-light !important;
+      }
+    }
+  }
+
+  // =========================================
+  // SPEED GRADER - DARK STYLING
+  // =========================================
+
+  #speedgrader_iframe,
+  #speed_grader_iframe,
+  .speedgrader_iframe {
+    background-color: $dm-bg-medium !important;
+  }
+
+  // =========================================
+  // FILES - DARK STYLING
+  // =========================================
+
+  .ef-main,
+  .ef-directory,
+  .ef-folder-content {
+    background-color: $dm-bg-darker !important;
+    color: $dm-text-primary !important;
+  }
+
+  .ef-item-row,
+  .ef-file-row {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+
+    &:hover {
+      background-color: $dm-bg-light !important;
+    }
+  }
+
+  // =========================================
+  // QUIZZES - COMPREHENSIVE FLASHBANG FIXES
+  // =========================================
+
+  // Quiz editing and submission backgrounds
+  .quiz-submission,
+  .question_editing,
+  #quiz_edit_wrapper,
+  .quiz_comment,
+  .quiz_sortable,
+  .question_form,
+  .form_answers,
+  .form_answers .answer,
+  .question_bank,
+  .question_holder .question {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+  }
+
+  // Quiz question and answer boxes
+  .question_text,
+  .answer_text,
+  .answer_html,
+  .question_comment,
+  .answer_comment,
+  .answer_comment_text,
+  .question_comment_text {
+    background-color: $dm-bg-light !important;
+    color: $dm-text-primary !important;
+  }
+
+  // Quiz navigation and controls
+  .quiz_nav,
+  .question-header,
+  .quiz-header,
+  #questions,
+  #quiz-question-list {
+    background-color: $dm-bg-darker !important;
+    color: $dm-text-primary !important;
+  }
+
+  // Quiz answer indicators
+  .answer_indicator,
+  .answer_arrow,
+  .correct_answer {
+    &.correct {
+      background-color: #1a5c1a !important;
+      color: #e6e6e6 !important;
+    }
+    &.incorrect {
+      background-color: #8b2424 !important;
+      color: #e6e6e6 !important;
+    }
+  }
+
+  // Quiz buttons and tabs
+  .quiz-submission .button,
+  .question-buttons,
+  .question .flag_question,
+  .question .move {
+    background-color: $dm-bg-light !important;
+    border-color: $dm-border-medium !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // GRADEBOOK - COMPREHENSIVE FLASHBANG FIXES
+  // =========================================
+
+  // Slick grid (used in gradebook)
+  .slick-header,
+  .slick-headerrow,
+  .slick-row,
+  .slick-cell {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+  }
+
+  .slick-header-column {
+    background-color: $dm-bg-light !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+  }
+
+  .odd .slick-cell,
+  .even .slick-cell {
+    background-color: $dm-bg-medium !important;
+
+    &.minimized {
+      background-color: $dm-bg-light !important;
+    }
+  }
+
+  // Gradebook grid
+  #gradebook_grid,
+  .gradebook-grid,
+  .canvas-grades,
+  #gradebook_wrapper,
+  .gradebook-menus,
+  #gradebook-actions {
+    background-color: $dm-bg-darker !important;
+    color: $dm-text-primary !important;
+  }
+
+  // Gradebook header and filter bar
+  #gradebook-filter-container,
+  .gradebook-header,
+  .section-button-tray,
+  #search-filter-container,
+  .DefaultGradebookGrid,
+  .Gradebook {
+    background-color: $dm-bg-darker !important;
+    color: $dm-text-primary !important;
+  }
+
+  // Grade cells and input
+  .grading-cell,
+  .gradebook-cell,
+  .gradebook_cell,
+  .Grid__GradeCell,
+  .grade-input {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+  }
+
+  // Total column tooltip
+  .total-column-tooltip {
+    background-color: $dm-bg-light !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // CALENDAR - COMPREHENSIVE FLASHBANG FIXES
+  // =========================================
+
+  // Calendar main container and views
+  #calendar-app,
+  .calendar-app,
+  .fc,
+  .fc-view,
+  .fc-month-view,
+  .fc-week-view,
+  .fc-agenda-view {
+    background-color: $dm-bg-darker !important;
+  }
+
+  // Calendar day cells
+  .fc-day-top,
+  .fc-day-number,
+  .fc-bg,
+  .fc-content-skeleton,
+  .fc-bgevent-skeleton {
+    background-color: transparent !important;
+    color: $dm-text-primary !important;
+  }
+
+  .fc-today {
+    background-color: rgba(79, 156, 255, 0.15) !important;
+  }
+
+  // Calendar sidebar (mini calendar)
+  .calendar-sidebar,
+  #right-side-wrapper,
+  .mini-cal,
+  .mini_calendar {
+    background-color: $dm-bg-medium !important;
+    color: $dm-text-primary !important;
+  }
+
+  // Calendar event popups
+  .fc-popover,
+  .fc-more-popover {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // CONVERSATIONS / INBOX - FLASHBANG FIXES
+  // =========================================
+
+  .message-list,
+  .message-item,
+  .message-content,
+  .message-header,
+  .conversation-header,
+  .message-item-view,
+  .conversations-container,
+  #compose-message-recipients {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+  }
+
+  .compose-message-dialog,
+  #compose-new-message,
+  .message-form {
+    background-color: $dm-bg-medium !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // GRADE SUMMARY - FLASHBANG FIXES  
+  // =========================================
+
+  #grades_summary,
+  .grade-summary,
+  .grade_details,
+  .student_assignment {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+  }
+
+  .score_holder,
+  .score_value,
+  .grade_display,
+  .grade-display {
+    background-color: $dm-bg-light !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // SPEEDGRADER - FLASHBANG FIXES
+  // =========================================
+
+  #speedgrader_iframe,
+  .speedgrader_iframe,
+  #speed_grader_assessment_audit_tray,
+  .speed-grader-panel {
+    background-color: $dm-bg-darker !important;
+    color: $dm-text-primary !important;
+  }
+
+  #gradebook_header,
+  #speed_grader_container,
+  #grading,
+  .submission_details {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // ANNOUNCEMENTS - FLASHBANG FIXES
+  // =========================================
+
+  .announcement,
+  .announcement-list,
+  .announcement-item,
+  .ic-announcement-row {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // RUBRICS - FLASHBANG FIXES
+  // =========================================
+
+  .rubric_container,
+  .rubric_table,
+  .rubric,
+  .rubric_title,
+  .rubric-criterion,
+  .rubric-ratings {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+  }
+
+  .rating-points,
+  .rating-description,
+  .rating-tier,
+  .criterion_description {
+    background-color: $dm-bg-light !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // GROUPS - FLASHBANG FIXES
+  // =========================================
+
+  .group-summary,
+  .group-item,
+  .group-category,
+  .group_category,
+  .group-user-list,
+  .groups-container {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // OUTCOMES - FLASHBANG FIXES
+  // =========================================
+
+  .outcome-group,
+  .outcome,
+  .outcome-header,
+  .outcomes-browser,
+  #outcomes {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // EPORTFOLIOS - FLASHBANG FIXES
+  // =========================================
+
+  .eportfolio-container,
+  .eportfolio_section,
+  .eportfolio-page {
+    background-color: $dm-bg-medium !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // ACCOUNT SETTINGS - FLASHBANG FIXES
+  // =========================================
+
+  .admin-links,
+  .account-settings,
+  #account_settings,
+  .settings-form,
+  .settings-table {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // COURSE PACING - FLASHBANG FIXES
+  // =========================================
+
+  .course-paces,
+  .course-paces-container,
+  .pace-plan {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // CONTENT MIGRATIONS - FLASHBANG FIXES
+  // =========================================
+
+  .content-migration,
+  .content-migration-container,
+  .import-content {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // USER PROFILE - FLASHBANG FIXES
+  // =========================================
+
+  .profile-container,
+  #profile_pic_dialog,
+  .profile_content,
+  .profile-edit,
+  .profile_links {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // SYLLABUS - FLASHBANG FIXES
+  // =========================================
+
+  .syllabus_container,
+  #syllabus,
+  .syllabus_table,
+  .syllabus-table,
+  .syllabus-event {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // CONFERENCES - FLASHBANG FIXES
+  // =========================================
+
+  .conferences-container,
+  .conference,
+  .conference-list {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // REGISTRATION / LOGIN - FLASHBANG FIXES
+  // =========================================
+
+  .ic-Login,
+  .ic-Login__content,
+  .ic-Login-form,
+  .registration-container,
+  .login-box {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // SLICK GRID VENDOR (USED IN MULTIPLE PLACES)
+  // =========================================
+
+  .slick-viewport,
+  .slick-top-panel,
+  .slick-header-columns,
+  .slick-header-column:hover {
+    background-color: $dm-bg-medium !important;
+  }
+
+  .slick-sortable-placeholder {
+    background-color: $dm-bg-light !important;
+  }
+
+  .slick-range-decorator {
+    border-color: $dm-accent-primary !important;
+  }
+
+  // =========================================
+  // BOOTSTRAP OVERRIDES - FLASHBANG FIXES
+  // =========================================
+
+  .dropdown-menu {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+
+    > li > a {
+      color: $dm-text-primary !important;
+
+      &:hover,
+      &:focus {
+        background-color: $dm-bg-light !important;
+        color: $dm-text-primary !important;
+      }
+    }
+  }
+
+  .pagination > li > a,
+  .pagination > li > span {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+
+    &:hover {
+      background-color: $dm-bg-light !important;
+    }
+  }
+
+  .btn-group .btn,
+  .btn-toolbar .btn {
+    background-color: $dm-bg-light !important;
+    border-color: $dm-border-medium !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // AUTOCOMPLETE / TOKEN INPUT - FLASHBANG FIXES
+  // =========================================
+
+  .token-input,
+  .token_input,
+  .token-selector,
+  .ui-autocomplete,
+  .ac_results,
+  .context_search_container {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+  }
+
+  .token-input-token,
+  .token {
+    background-color: $dm-bg-light !important;
+    border-color: $dm-border-medium !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // EMBEDS & IFRAMES - DARK CONTAINER
+  // =========================================
+
+  // Wrap external content in dark container
+  .tool_content_wrapper,
+  .lti-embed,
+  .lti_wrapper,
+  .external-tool-wrapper,
+  iframe:not(.pdf-preview):not(.file-preview-frame) {
+    background-color: $dm-bg-medium !important;
+  }
+
+  // =========================================
+  // BREADCRUMBS - FLASHBANG FIXES
+  // =========================================
+
+  .ic-app-crumbs,
+  #breadcrumbs,
+  .breadcrumb {
+    background-color: transparent !important;
+    color: $dm-text-secondary !important;
+
+    a {
+      color: $dm-accent-link !important;
+    }
+  }
+
+  // =========================================
+  // ITEM GROUPS - FLASHBANG FIXES
+  // =========================================
+
+  .item-group,
+  .item-group-container,
+  .item-group-condensed {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+  }
+
+  .ig-header,
+  .ig-row,
+  .ig-list {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-dark !important;
+  }
+
+  // =========================================
+  // CODE/PRE BLOCKS - FLASHBANG FIXES
+  // =========================================
+
+  pre,
+  code,
+  .code,
+  .ic-code,
+  kbd,
+  samp {
+    background-color: $dm-bg-lighter !important;
+    border-color: $dm-border-dark !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // GLOBAL CATCH-ALL FOR REMAINING WHITES
+  // =========================================
+
+  // Force dark on any remaining white containers
+  [style*="background-color: rgb(255, 255, 255)"],
+  [style*="background-color: rgba(255, 255, 255"],
+  [style*="background: rgb(255, 255, 255)"],
+  [style*="background-color: white"],
+  [style*="background: white"],
+  [style*="background-color:#fff"],
+  [style*="background:#fff"],
+  [style*="background-color: #fff"],
+  [style*="background: #fff"],
+  [style*="background-color:#ffffff"],
+  [style*="background:#ffffff"],
+  [style*="background-color: #ffffff"],
+  [style*="background: #ffffff"],
+  .bg-white,
+  .bg-light,
+  .background-white,
+  .background-light {
+    background-color: $dm-bg-medium !important;
+  }
+
+  // Force dark text on any remaining dark-on-dark issues
+  .text-dark,
+  .text-black {
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // ADDITIONAL FIXES: Header bar, nav icons, buttons
+  // =========================================
+
+  // Course header bar
+  .header-bar {
+    background-color: $dm-bg-medium !important;
+    border-color: $dm-border-medium !important;
+  }
+
+  // Navigation icons with white backgrounds
+  .nav-icon.icon-off,
+  i.nav-icon {
+    background-color: transparent !important;
+    color: $dm-text-secondary !important;
+  }
+
+  // InstUI button content with white background
+  [class*="baseButton__content"],
+  [class*="-baseButton__content"] {
+    background-color: transparent !important;
+  }
+
+  // Module header bar
+  .ig-header,
+  .ig-header-title {
+    background-color: $dm-bg-light !important;
+    color: $dm-text-primary !important;
+  }
+
+  // Course navigation indicator icons
+  .section .section-tab i,
+  .context-course-menu i.icon-off {
+    background-color: transparent !important;
+  }
+
+  // FullCalendar additional fixes
+  .fc-body,
+  .fc-row,
+  .fc-day,
+  .fc-day-grid,
+  .fc-day-top,
+  .fc-content-skeleton,
+  .fc-bgevent-skeleton,
+  .fc-highlight-skeleton {
+    background-color: $dm-bg-medium !important;
+  }
+
+  #calendar-list-holder,
+  .calendar-list-holder {
+    background-color: $dm-bg-medium !important;
+  }
+
+  // =========================================
+  // ULTIMATE FALLBACK: Target common white patterns
+  // =========================================
+
+  // Any element with explicit white background
+  [class*="__white"],
+  [class*="-white"],
+  [class*="_white"],
+  [class*="White"] {
+    background-color: $dm-bg-medium !important;
+    color: $dm-text-primary !important;
+  }
+
+  // Any remaining light/white gradients
+  [style*="linear-gradient"][style*="255, 255, 255"],
+  [style*="linear-gradient"][style*="#fff"],
+  [style*="linear-gradient"][style*="white"] {
+    background: $dm-bg-medium !important;
+  }
+
+  // =========================================
+  // ISSUE #1: Course page Published/Unpublished Dropdown
+  // Letters not showing - need white text
+  // =========================================
+  .course-status-dropdown,
+  .publish-status-toggle,
+  .btn-publish,
+  .btn-unpublish,
+  [class*="PublishButton"],
+  [class*="publishButton"],
+  .publish-icon-publish,
+  .publish-icon-unpublish,
+  .ig-header .published-status,
+  .ig-row .published-status,
+  .module-publish-link,
+  .context_module .ig-header-admin .module_workflow_state_link,
+  .icon-publish,
+  .icon-unpublish,
+  .icon-unpublished {
+    color: $dm-text-primary !important;
+  }
+
+  // Publish button menu/dropdown
+  .publish-menu,
+  .publish-options,
+  .ui-menu.publish-options,
+  .published-status-dropdown {
+    background-color: $dm-bg-medium !important;
+    color: $dm-text-primary !important;
+    border-color: $dm-border-medium !important;
+  }
+
+  .publish-menu li,
+  .publish-options li,
+  .published-status-dropdown li {
+    background-color: $dm-bg-medium !important;
+    color: $dm-text-primary !important;
+
+    &:hover {
+      background-color: $dm-bg-light !important;
+    }
+
+    a, button, span {
+      color: $dm-text-primary !important;
+    }
+  }
+
+  // =========================================
+  // ISSUE #2: Modules page Progress/Publish status bar
+  // White background should be dark
+  // =========================================
+  .header-bar,
+  .header-bar-outer-container,
+  .header-bar-right,
+  .module-actions,
+  #context_modules_sortable_container .header-bar,
+  .context-modules-header,
+  #context-modules-header,
+  .modules-header,
+  .context_module .ig-header,
+  .context_module .ig-header-admin,
+  #context-modules .header-bar {
+    background-color: $dm-bg-medium !important;
+    color: $dm-text-primary !important;
+    border-color: $dm-border-medium !important;
+  }
+
+  // Module header bar buttons
+  .header-bar .btn,
+  .header-bar button,
+  .header-bar-right .btn,
+  .header-bar-right button {
+    background-color: $dm-bg-light !important;
+    color: $dm-text-primary !important;
+    border-color: $dm-border-medium !important;
+  }
+
+  // =========================================
+  // ISSUE #3: Modules page Course status dropdown
+  // White bg should be dark
+  // =========================================
+  .course-state-selector,
+  .course-state-dropdown,
+  #course-status,
+  .course-status,
+  .publish_course_link,
+  .unpublish_course_link,
+  [data-component="CoursePacing"],
+  [data-testid="course-status"],
+  .course-pacing-dropdown,
+  #course_status_form,
+  #course_status_actions,
+  .course_publish_button,
+  .btn-course-publish,
+  .ic-DashboardCard__header_hero,
+  .course-card-status {
+    background-color: $dm-bg-light !important;
+    color: $dm-text-primary !important;
+    border-color: $dm-border-medium !important;
+  }
+
+  .course-state-selector select,
+  .course-status select,
+  #course_status select {
+    background-color: $dm-bg-lighter !important;
+    color: $dm-text-primary !important;
+    border-color: $dm-border-medium !important;
+  }
+
+  // =========================================
+  // ISSUE #4: Assignments page visibility icons
+  // Ovals are white with wrong icon colors
+  // =========================================
+  .assignment-visibility-icon,
+  .icon-visibility,
+  .icon-visibility-off,
+  .icon-off,
+  [class*="visibility-icon"],
+  [class*="VisibilityIcon"],
+  .assignment_icon_visibility,
+  .ig-row .assignment-visibility,
+  .assignment-list .visibility,
+  .icon-eye,
+  .icon-eye-slash,
+  .visibility-pill,
+  .visibility-badge,
+  [data-testid="visibility-icon"],
+  .assignment-visibility-pill {
+    background-color: $dm-bg-light !important;
+    color: $dm-text-primary !important;
+    fill: $dm-text-primary !important;
+    border-color: $dm-border-medium !important;
+  }
+
+  // Fix visibility icon SVGs
+  .icon-visibility svg,
+  .icon-visibility-off svg,
+  .visibility-pill svg,
+  .assignment-visibility-icon svg {
+    fill: $dm-text-primary !important;
+    color: $dm-text-primary !important;
+  }
+
+  // Crossed out eyeball icon
+  .icon-off,
+  .icon-unpublished,
+  .icon-visibility-off {
+    background-color: $dm-bg-light !important;
+    color: $dm-text-primary !important;
+    fill: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // ISSUE #5: Calendar mini calendar (top right)
+  // White boxes around days
+  // =========================================
+  // Mini calendar in sidebar
+  .calendar-sidebar .mini-calendar,
+  .mini_calendar,
+  #mini_calendar,
+  .mini_calendar_container,
+  .calendar__day,
+  .mini-cal,
+  .mini-cal-header,
+  .mini-cal-body,
+  .mini-cal-day,
+  .fc-daygrid-day-frame,
+  .fc-daygrid-day-top,
+  .fc-daygrid-day-number,
+  #right-side .calendar-day,
+  #right-side-wrapper .calendar_container,
+  .calendar_container,
+  .calendar_day {
+    background-color: $dm-bg-medium !important;
+    color: $dm-text-primary !important;
+    border-color: $dm-border-dark !important;
+  }
+
+  // Mini calendar table cells
+  .mini_calendar td,
+  .mini_calendar th,
+  .mini-calendar td,
+  .mini-calendar th,
+  #mini_calendar td,
+  #mini_calendar th,
+  .mini_calendar_container td,
+  .mini_calendar_container th {
+    background-color: $dm-bg-medium !important;
+    color: $dm-text-primary !important;
+    border-color: $dm-border-dark !important;
+  }
+
+  // Mini calendar hover states
+  .mini_calendar td:hover,
+  .mini-calendar td:hover,
+  #mini_calendar td:hover {
+    background-color: $dm-bg-light !important;
+  }
+
+  // Calendar picker in other areas
+  .calendar-button,
+  .ui-datepicker-trigger {
+    background-color: $dm-bg-light !important;
+    color: $dm-text-primary !important;
+  }
+
+  // =========================================
+  // ISSUE #6: Inbox "No Conversations to Show"
+  // Text is dark blue, should be white
+  // =========================================
+  .no-messages,
+  .empty-text,
+  .conversations-empty,
+  .no-conversations,
+  [class*="empty-state"],
+  [class*="emptyState"],
+  [class*="EmptyState"],
+  .message-list-empty,
+  .message-list__empty,
+  .inbox-empty,
+  .inbox__empty,
+  .null-state-message,
+  .null-state-text,
+  .empty-conversations,
+  .conversations__empty,
+  #conversation_list .no-messages,
+  #inbox .empty-message,
+  .messages-empty,
+  .message-center-empty {
+    color: $dm-text-primary !important;
+  }
+
+  // Also ensure any child elements have correct color
+  .no-messages *,
+  .empty-text *,
+  .conversations-empty *,
+  .no-conversations *,
+  .null-state-message *,
+  .null-state-text *,
+  .inbox-empty *,
+  .messages-empty * {
+    color: $dm-text-primary !important;
+  }
+
+  // Inbox SVG icons in empty state
+  .conversations-empty svg,
+  .no-conversations svg,
+  .empty-state svg,
+  .inbox-empty svg {
+    fill: $dm-text-muted !important;
+  }
+
+  // =========================================
+  // ISSUE #7: Student View Mode
+  // Should preserve dark mode when teacher enters student view
+  // (This is handled by Rails - user preference)
+  // But we need to ensure student-view-specific elements are styled
+  // =========================================
+  .student-view-banner,
+  .student_view_banner,
+  #student-view-notice,
+  .student-view-mode-notice,
+  [data-testid="student-view-banner"],
+  .reset-student-button,
+  .leave-student-view {
+    background-color: $dm-bg-light !important;
+    color: $dm-text-primary !important;
+    border-color: $dm-border-medium !important;
+  }
+
+  .student-view-banner a,
+  .student_view_banner a,
+  .leave-student-view a {
+    color: $dm-accent-link !important;
+  }
+
+  // Student dashboard cards
+  .ic-DashboardCard,
+  .dashboard-card,
+  .student-planner-item,
+  .PlannerItem,
+  .planner-item {
+    background-color: $dm-bg-medium !important;
+    color: $dm-text-primary !important;
+    border-color: $dm-border-medium !important;
+  }
+
+  // Student view course navigation
+  .student-view .course-navigation,
+  .student-view .nav-item {
+    background-color: $dm-bg-dark !important;
+    color: $dm-text-primary !important;
+  }
+}
+
+// =========================================
+// PDF Preview - Keep Light (intentional)
+// =========================================
+body.dark-mode .ef-file-preview-frame,
+body.dark-mode .file-preview-frame,
+body.dark-mode iframe.pdf-preview {
+  background-color: #ffffff;
+}

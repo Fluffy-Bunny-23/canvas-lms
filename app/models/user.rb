@@ -2109,6 +2109,10 @@ class User < ActiveRecord::Base
     !!feature_enabled?(:high_contrast)
   end
 
+  def prefers_dark_mode?
+    !!feature_enabled?(:dark_mode)
+  end
+
   def prefers_dyslexic_font?
     !!feature_enabled?(:use_dyslexic_font)
   end

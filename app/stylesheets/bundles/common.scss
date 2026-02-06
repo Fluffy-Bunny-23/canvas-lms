@@ -99,3 +99,6 @@
 @import 'bundles/rce';
 @import 'pages/react_files/_FilePreview.scss';
 @import 'components/media_recorder';
+
+// Dark mode theme (must be loaded last to override other styles)
+@import 'base/dark_mode';

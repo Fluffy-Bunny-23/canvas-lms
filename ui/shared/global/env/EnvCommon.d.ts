@@ -147,6 +147,7 @@ export interface EnvCommon {
   help_link_name: string
   help_link_icon: string
   use_high_contrast: boolean
+  prefers_dark_mode?: boolean
   use_dyslexic_font?: boolean
   widget_dashboard?: boolean
   widget_dashboard_overridable?: boolean
